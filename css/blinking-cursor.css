@@ -1,0 +1,14 @@
+#cursor {
+    display: inline-block;
+    background: grey;
+    margin-left: 3px;
+    -webkit-animation: blink 0.8s infinite;
+    width: 7px;
+    height: 50px;
+}
+
+@-webkit-keyframes blink {
+    0% {background: #222}
+    50% {background: grey}
+    100% {background: #222}
+}

@@ -7,11 +7,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Sendevo : Home</title>
+	<title>Sendevo</title>
 
 	<link rel="shortcut icon" type="image/icon" href="images/favicon-16x16.png" />
 	<link rel="stylesheet" href="css/style.min.css">
 	<link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/blinking-cursor.css">
 
 	<!--[if IE]>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -60,10 +61,10 @@
 		<section id="section0" class="section homescreen" style="background: url('images/slider/background.jpg') no-repeat center top; background-size: cover;">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="section-heading text-center">
-							<h1>Somos Sendevo</h1>
-							<p>Analizamos tu idea. Planteamos los requerimientos. Adquirimos la implementación. Te entregamos la mejor solución. Repetimos el proceso.</p>
+					<div class="col-md-8 col-md-offset-2">
+						<div class="section-heading">
+							<h1>Somos <span id="changing-title">Sendevo.</span><div id="cursor"></div></h1>
+                            <p>Analizamos tu idea. Planteamos los requerimientos. Desarrollamos la implementación. Te devolvemos la mejor solución.</p>
 						</div>
 					</div>
 					<div class="arrow bounce">Desplazar <i class="fa fa-arrow-down"></i></div>
@@ -76,7 +77,7 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<h2>Quiénes somos</h2>
-						<p>Somos especialistas en materia de soluciones tecnológicas y buscamos conectar a nuestros clientes, quienes buscan crear un producto acorde a las necesidades de su negocio, con nuestros profesionales, quienes poseen las herramientas para crear las mejores soluciones.</p>
+						<p>Somos especialistas en materia de soluciones tecnológicas 4.0. Conectamos a nuestros clientes, quienes buscan crear un producto acorde a las necesidades de su negocio, con nuestra comunidad de desarrolladores, quienes poseen las herramientas para crear las mejores soluciones.</p>
 						<div class="form-group">
 							<a class="btn btn-secondary" target="_blank" href="doc/whitepaper.pdf"><p>White paper</p></a>
 						</div>
@@ -139,9 +140,9 @@
 					<div class="col-sm-6 col-md-6 hidden-xs">
 						<h2>Qué hacemos</h2>
 						<p>Analizamos la idea, planteamos los requerimientos técnicos, estimamos plazos y cotizamos el proyecto.</p>
-						<p>Una vez aprobado el presupuesto, dividimos el proyecto en múltiples bloques, cada uno contando con un sistema de validación automático que certifica la correctitud de los mismos.</p>
-						<p>Los usuarios de nuestra plataforma pueden ver las especificaciones de cada bloque y comenzar a trabajar en posibles implementaciones de los mismos a cambio de un pago preestablecido, el cual se asegura por medio de contratos inteligentes.</p>						
-						<p>De esta manera, logramos un ecosistema mutualista basado en la cofiabilidad garantizada por las tecnologías distribuidas.</p>
+						<p>A partir de la aprobación del presupuesto, dividimos el proyecto en múltiples bloques, cada uno contando con un sistema de validación automático para certificar la correctitud de los mismos.</p>
+						<p>Los profesionales de nuestra plataforma tienen acceso a las especificaciones de cada bloque y comienzan a trabajar en posibles implementaciones de los mismos para conseguir el premio preestablecido, que se encuentra asegurado por medio de contratos inteligentes.</p>
+						<p>Nuestro ecosistema sinérgico está basado en la cofiabilidad garantizada por las tecnologías descentralizadas.</p>
 					</div>
 				</div>
 			</div>
@@ -240,8 +241,13 @@
 							</div> 
 							<div class="feedback-item">
 								<span class="top-icon icon-quote fa-4x"></span>
-								<p>Basándose en una simple idea, Sendevo ha logrado crear un ecosistema que conecta y beneficia muchas partes.</p>
+								<p>Basándose en simples principios, Sendevo ha logrado crear un ecosistema que conecta y beneficia a todas las partes.</p>
 								<span class="client-name">Ricardo Rayten - Digital Bucket Co.</span>
+							</div>
+                            <div class="feedback-item">
+								<span class="top-icon icon-quote fa-4x"></span>
+								<p>Rápido, eficiente y confiable. Sendevo reúne todas las características que uno espera por parte de quien desarrolla tu producto.</p>
+								<span class="client-name">Esteban Dereck - Pearson & Dereck.</span>
 							</div>
 						</div>
 					</div>
@@ -261,10 +267,10 @@
 					<div class="col-md-12">
 						<div class="owl-carousel owl-theme team-slick">
 							<div class="member-item text-center">
-								<img class="img-responsive img-circle" src="images/team/1_400x400.jpg" alt="">
+								<img class="img-responsive img-circle" src="images/team/avatar-002.jpg" alt="">
 								<div class="team-detail">
-									<h3 class="member-name">Roberto Peterson</h3>
-									<p>CEO & Fundador</p>
+									<h3 class="member-name">Roberto Menna</h3>
+									<p>Director Ejecutivo</p>
 									<ul class="social-links">
 										<li><a class="fa fa-facebook" href="#"></a></li>
 										<li><a class="fa fa-twitter" href="#"></a></li>
@@ -274,23 +280,10 @@
 								</div>
 							</div>
 							<div class="member-item text-center">
-								<img class="img-responsive img-circle" src="images/team/2_400x400.jpg" alt="">
-								<div class="team-detail">
-									<h3 class="member-name">Marcos Alex</h3>
-									<p>CTO & Fundador</p>
-									<ul class="social-links">
-										<li><a class="fa fa-facebook" href="#"></a></li>
-										<li><a class="fa fa-twitter" href="#"></a></li>
-										<li><a class="fa fa-instagram" href="#"></a></li>
-										<li><a class="fa fa-google-plus" href="#"></a></li>
-									</ul>
-								</div>
-							</div>	
-							<div class="member-item text-center">
 								<img class="img-responsive img-circle" src="images/team/3_400x400.jpg" alt="">
 								<div class="team-detail">
 									<h3 class="member-name">Ruth Morgan</h3>
-									<p>COO</p>
+									<p>Director de operaciones</p>
 									<ul class="social-links">
 										<li><a class="fa fa-facebook" href="#"></a></li>
 										<li><a class="fa fa-twitter" href="#"></a></li>
@@ -298,7 +291,20 @@
 										<li><a class="fa fa-google-plus" href="#"></a></li>
 									</ul>
 								</div>
-							</div>						
+							</div>
+                            <div class="member-item text-center">
+								<img class="img-responsive img-circle" src="images/team/2_400x400.jpg" alt="">
+								<div class="team-detail">
+									<h3 class="member-name">Marcos Alex</h3>
+									<p>Director de tecnología</p>
+									<ul class="social-links">
+										<li><a class="fa fa-facebook" href="#"></a></li>
+										<li><a class="fa fa-twitter" href="#"></a></li>
+										<li><a class="fa fa-instagram" href="#"></a></li>
+										<li><a class="fa fa-google-plus" href="#"></a></li>
+									</ul>
+								</div>
+							</div>							
 							<div class="member-item text-center">
 								<img class="img-responsive img-circle" src="images/team/4_400x400.jpg" alt="">
 								<div class="team-detail">
@@ -460,6 +466,7 @@
 	<script src="js/validator.js"></script>
 	<script src="js/ajax-contact.js"></script>
 	<script src="js/custom.min.js"></script>
+    <script src="js/changing-text.js"></script>
 
 </body>
 
