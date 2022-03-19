@@ -2,8 +2,10 @@
     var wordArray = [
         "Sendevo.",
         "Software.",
+	"Sendevo.",
         "Simples.",
         "Sinérgicos.",
+	"Sendevo.",
         "Superadores."
     ];
     var speed = 100; // Velocidad de tipeo (ms)
