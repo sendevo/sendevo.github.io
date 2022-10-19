@@ -2,11 +2,11 @@
     var wordArray = [
         "Sendevo.",
         "Software.",
-	"Sendevo.",
+        "Sendevo.",
         "Simples.",
         "Sinérgicos.",
-	"Sendevo.",
-        "Superadores."
+        "Sendevo.",
+        "Soluciones."
     ];
     var speed = 100; // Velocidad de tipeo (ms)
     var pauseLength = 15; // Duracion de pausa (x speed)
