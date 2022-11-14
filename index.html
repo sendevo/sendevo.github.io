@@ -380,8 +380,7 @@
 					</div>
 					<div class="col-sm-6 col-md-6">
 						<div class="enquiry-box">
-							<form id="contact-form" method="post" action="contact.php" novalidate>
-								<div class="messages"></div>
+							<form id="contact-form" action="">								
 								<div class="controls">
 									<div class="form-group">
 										<label for="form_name">Nombre</label>
@@ -411,10 +410,10 @@
 										<div class="help-block with-errors"></div>
 									</div>
 									<div class="form-group">
-										<input class="btn btn-secondary btn-send disabled" value="Enviar"
-											type="submit">
+										<input class="btn btn-secondary btn-send disabled" value="Enviar" type="submit">
 									</div>
 								</div>
+								<div class="messages"></div>
 							</form>
 						</div>
 					</div>
@@ -444,6 +443,8 @@
 	</footer>
 
 	<!--<script data-cfasync="false" src="js/email-decode.min.js"></script>-->
+	<script src="js/firebase-app.js"></script>
+	<script src="js/firebase-database.js"></script>
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/jquery.easing.min.js"></script>
 	<script src="js/jquery.fullPage.min.js"></script>
@@ -452,7 +453,7 @@
 	<script src="js/validator.js"></script>
 	<script src="js/ajax-contact.js"></script>
 	<script src="js/custom.min.js"></script>
-    <script src="js/changing-text.js"></script>
+    <script src="js/changing-text.js"></script>    
 
 </body>
 

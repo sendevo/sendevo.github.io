@@ -2,10 +2,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<meta name="description" content="Agrar.io: gestión eficiente de actividades agropecuarias">
+		<meta name="description" content="Agrario: la mejor forma de gestionar las actividades en tu empresa agropecuaria.">
         <meta name="author" content="Sendevo Software">
        
-        <title>&lt;Agrar.io/&gt; | Gestión agrícola eficiente</title>
+        <title>Agrario | Gestión agrícola eficiente</title>
         
 		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 		
@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="css/swiper.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/toastr.min.css">
         <!--<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>-->
     </head>
     <body>
@@ -37,7 +38,7 @@
         <header id="header" class="header_section">
             <div class="container">
                 <nav class="navbar">
-                    <a href="#" class="navbar-brand"><img width="250px" src="img/logo.png" alt="Enovo"></a>
+                    <a href="#" class="navbar-brand"><img width="250px" src="img/logo.png" alt="Agrario"></a>
                     <div class="d-flex menu-wrap">
                        <div id="navmenu" class="mainmenu">
                            <ul class="nav">
@@ -310,8 +311,8 @@
 		<div id="subscribe" class="subscribe_section padding">
 		    <div class="container">
 		        <div class="subscribe_wrap">
-                    <form action="#" class="subscribe_form">
-                        <input type="email" name="email" id="subs-email" class="form_input" placeholder="Ingrese su dirección de email...">
+                    <form action="" class="subscribe_form" id="subscribe_form">
+                        <input type="email" name="email" id="subs_email" class="form_input" placeholder="Ingrese su dirección de email...">
                         <button type="submit" class="button_1 submit">Subscribirse</button>
                         <div id="subscribe-result">
                             <p class="subscription-success"></p>
@@ -337,28 +338,19 @@
 
 		<a data-scroll href="#header" id="scroll-to-top"><i class="arrow_carrot-up"></i></a>
 	
-		<!-- jQuery Lib -->
+        <script src="../js/firebase-app.js"></script>
+        <script src="../js/firebase-database.js"></script>
 		<script src="js/vendor/jquery-1.12.4.min.js"></script>
-		<!-- Bootstrap JS -->
 		<script src="js/vendor/bootstrap.min.js"></script>
-		<!-- Tether JS -->
 		<script src="js/vendor/tether.min.js"></script>
-		<!-- Slicknav JS -->
 		<script src="js/vendor/jquery.slicknav.min.js"></script>
-		<!-- OWL-Carousel JS -->
 		<script src="js/vendor/owl.carousel.min.js"></script>
-		<!-- Swiper JS -->
 		<script src="js/vendor/swiper.min.js"></script>
-		<!-- Smooth Scroll JS -->
 		<script src="js/vendor/smooth-scroll.min.js"></script>
-		<!-- Ajaxchimp JS -->
 		<script src="js/vendor/jquery.ajaxchimp.min.js"></script>
-		<!-- Wow JS -->
 		<script src="js/vendor/wow.min.js"></script>
-		<!-- Main JS -->
+        <script src="js/vendor/toastr.min.js"></script>
 		<script src="js/main.js"></script>
 
     </body>
-
-<!-- Mirrored from html.dynamiclayers.net/at/enovo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 13 Nov 2022 12:33:56 GMT -->
 </html>
