@@ -2,14 +2,25 @@
     var wordArray = [
         "Sendevo.",
         "Software.",
+        "Serios.",
         "Sendevo.",
         "Simples.",
         "Sinérgicos.",
         "Sendevo.",
-        "Soluciones."
+        "Sistemáticos.",
+        "Soluciones.",
+        "Sagaces.",
+        "Software.",
+        "Sencillos.",
+        "Sendevo.",
+        "Serenos.",
+        "Sofisticados.",
+        "Suplementarios.",
+        "Sorprendentes.",
+        "Software."
     ];
-    var speed = 100; // Velocidad de tipeo (ms)
-    var pauseLength = 15; // Duracion de pausa (x speed)
+    var speed = 75; // Velocidad de tipeo (ms)
+    var pauseLength = 20; // Duracion de pausa (x speed)
     var wordIndex = 0; // Palabra actual
     var charIndex = 0; // Caracter actual
     var pauseCnt = 0; // Contador pause
