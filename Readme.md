@@ -35,7 +35,4 @@
 
 [8.1]: https://cdn.icon-icons.com/icons2/1211/PNG/48/1491579583-yumminkysocialmedia02_83111.png
 
-[8]: https://twitter.com/sendevo_io
-     
-
-Creado por [Matías Micheletto](https://github.com/matiasmicheletto/).
+[8]: https://twitter.com/sendevo_io  
