@@ -175,4 +175,29 @@
 
     $(".bg-ytvideo").mb_YTPlayer();
 
+    firebase.initializeApp({
+        apiKey: "AIzaSyAzPXh2y3txdmjnuX695g_l1uNCutdMaMU",
+        authDomain: "sendevo-mailing.firebaseapp.com",
+        databaseURL: "https://sendevo-mailing-default-rtdb.firebaseio.com",
+        projectId: "sendevo-mailing",
+        storageBucket: "sendevo-mailing.appspot.com",
+        messagingSenderId: "602162181087",
+        appId: "1:602162181087:web:ac3f237c8243765e83ca6a"
+    });
+    
+    $("#contact-form").submit(function(e) {    
+        e.preventDefault();
+        const emailValue = document.getElementById('email').value;
+        if(emailValue){
+            const database = firebase.database();
+            database.ref("presipedia_suscribers")
+                .push({email: emailValue})
+                .then(res => {
+                    console.log({type:"success", message:"Gracias por contactarse. Le responderemos a la brevedad"});
+                    $("#email").val("");
+                })
+                .catch(console.warn);   
+        }
+    });
+
 }(jQuery));

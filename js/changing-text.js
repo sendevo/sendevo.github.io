@@ -2,21 +2,9 @@
     var wordArray = [
         "Sendevo.",
         "Software.",
-        "Serios.",
-        "Sendevo.",
         "Simples.",
-        "Sinérgicos.",
-        "Sendevo.",
-        "Sistemáticos.",
         "Soluciones.",
-        "Sagaces.",
-        "Software.",
-        "Sencillos.",
         "Sendevo.",
-        "Serenos.",
-        "Sofisticados.",
-        "Suplementarios.",
-        "Sorprendentes.",
         "Software."
     ];
     var speed = 75; // Velocidad de tipeo (ms)
