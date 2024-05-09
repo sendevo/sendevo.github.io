@@ -1,0 +1,89 @@
+\documentclass[]{llncs}
+
+\usepackage[spanish]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mathtools}  
+\usepackage{xfrac}  
+\usepackage{graphicx}
+\usepackage{subfigure}
+
+%\newcommand{\Todo}[1]{\colorbox{BurntOrange}{#1}}
+%\authorrunning{Matías Micheletto}
+%\titlerunning{Agrar.io: Una aplicación multiplataforma para la gestión de tareas...}
+
+
+\begin{document}
+
+\title{Agrar.io: Una aplicación multiplataforma para la gestión de tareas agropecuarias}
+\author{Dr. Matías Micheletto\orcidID{0000-0002-1891-3137}}
+\institute{Sendevo Software, Bahía Blanca (8000), Buenos Aires \\ 
+\email{matiasmicheletto@gmail.com}}
+
+\maketitle
+
+\begin{abstract}
+En este trabajo se describen los detalles funcionales y técnicos de una aplicación multiplataforma orientada a la gestión integral de tareas agropecuarias. A partir de este desarrollo se destacan tres aportes principales: (1) la definición de un modelo ontológico para representar tareas agropecuarias, (2) la implementación de bases de datos distribuidas para compartir información punto a punto entre usuarios con escaso ancho de banda disponible y (3) la integración de estas propuestas en un único software multiplataforma, cuyas características de descentralización, flexibilidad y foco tanto en la privacidad como el soporte móvil offline, lo convierten en un producto que se diferencia respecto de otras alternativas dentro del mercado digital actual. Este desarrollo está pensado para brindar un conjunto de utilidades a un amplio espectro de usuarios pertenecientes al ámbito agropecuario, como productores, profesionales, asesores y/o contratistas.
+
+\keywords{Ontologías \and Desarrollo web \and IPFS \and PWA \and Android.}
+\end{abstract}
+
+\input{1_intro}
+\input{2_modelo}
+\input{3_datos}
+\input{4_software}
+\input{5_conclusion}
+
+\begin{thebibliography}{8}
+\bibitem{abrahao2017}
+Abrahao, E.; Hirakawa, A. R. \textit{Task Ontology Modeling for Technical Knowledge Representation in Agriculture Field Operations Domain}. 2nd International Conference on Information Systems Engineering (ICISE).(2017). doi:10.1109/icise.2017.18
+
+\bibitem{abrahao2018}
+Elcio Abrahão, André Riyuiti Hirakawa. \textit{Complex Task Ontology Conceptual Modelling: Towards the Development of the Agriculture Operations Task Ontology}. 10th International Conference on Knowledge Engineering and Ontology Development (KEOD), 2018, Seville, Spain. pp.287-294, doi:10.5220/0006956202870294.
+
+\bibitem{ulitin2019}
+Boris Ulitin; Eduard Babkin. \textit{Ontology-based reconfigurable DSL for planning technical services},IFAC-PapersOnLine,Volume 52, Issue 13.2019, Pages 1138-1144,ISSN 2405-8963. doi: 10.1016/j.ifacol.2019.11.349.
+
+\bibitem{bao2022} Jun Bao; Qiuju Xie. \textit{Artificial intelligence in animal farming: A systematic literature review}. Journal of Cleaner Production, Volume 331, 2022, 129956,ISSN 0959-6526. doi: 10.1016/j.jclepro.2021.129956.
+
+\bibitem{schmitt2023} Marc Schmitt. \textit{Automated machine learning: AI-driven decision making in business analytics}. Intelligent Systems with Applications. Volume 18,2023,200188, ISSN 2667-3053. doi: 10.1016/j.iswa.2023.200188.
+
+\bibitem{beleites2013} Beleites, Claudia; Neugebauer, Ute; Bocklitz, Thomas; Krafft, Christoph; Popp, Jurgen. \textit{Sample size planning for classification models}. Analytica chimica acta, 760:25–33, 2013.
+
+\bibitem{figueroa2012} Figueroa, Rosa L; Zeng-Treitler, Qing; Kandula, Sasikiran; Ngo, Long H. \textit{Predicting sample size required for classification performance.} BMC medical informatics and decision making, 12(1):8, 2012.
+
+\bibitem{otalvora2016} Otalvora, William Contreras; AlKhudiri Musab; Alsanie Faisal; Binil Mathew. \textit{A Comprehensive Approach to Measure the RealTime Data Quality Using Key Performance Indicators.} Annual Technical Conference and Exhibition, Dubai, UAE, 2016. doi: 10.2118/181315-MS
+
+\bibitem{encuesta} Scaramuzza, Fernando Miguel; Villarroel, Diego Daniel; Olivo, Silvia Maria; Muñoz, Sebastián Andrés; Bianco Gaido, Mauro Raul; Cuevas, Lucas Ezequiel: \textit{Relevamiento de utilización de apps y/o plataformas digitales para la gestión de datos en el agro}. Encuesta 2022. ISSN 1851-7994. 
+
+\bibitem{jazayeri} M. Jazayeri: \textit{Some Trends in Web Application Development}. Future of Software Engineering (FOSE '07), Minneapolis, MN, USA, 2007, pp. 199-213, doi: 10.1109/FOSE.2007.26.
+
+\bibitem{geojson} Butler, Howard; Daly, Martin; Doyle, Allan; Gillies, Sean; Hagen, Stefan; Schaub, Tim: \textit{The geojson format}. Internet Engineering Task Force (IETF). 2016.
+
+\bibitem{davis1989} Davis, F. D. \textit{Perceived Usefulness, Perceived Ease of Use, and User Acceptance of Information Technology}. MIS Quarterly, 13(3), 319–340. 1989. doi: 10.2307/249008.
+
+\bibitem{venkatesh2003} Venkatesh, V., Morris, M. G., Davis, G. B., Davis, F. D. \textit{User Acceptance of Information Technology: Toward a Unified View}. MIS Quarterly, 27(3), 425–478. 2003. doi: 10.2307/30036540.
+
+\bibitem{briggerman2010} Briggeman, B., Whitacre, B. \textit{Farming and the Internet: Reasons for Non-Use}. Agricultural and Resource Economics Review, 39(3), 571-584. 2010. doi: 10.1017/S1068280500007528.
+
+\bibitem{michels2020} Michels, M., Fecke, W., Feil, JH. et al. \textit{Smartphone adoption and use in agriculture: empirical evidence from Germany}. Precision Agric 21, 403–425. 2020. doi: 10.1007/s11119-019-09675-5.
+
+\bibitem{kafentzis2004} Kafentzis, K., Mentzas, G., Apostolou, D. and Georgolios, P. (2004), \textit{Knowledge marketplaces: strategic issues and business models}. Journal of Knowledge Management, Vol. 8 No. 1, pp. 130-146. doi: 10.1108/13673270410523961
+
+\bibitem{criollo} Gabriel Eggly, Matias Micheletto, Juan P. D'Amico, Santiago Crocioni. \textit{Desarrollo de una Aplicación Móvil para Cálculos de Pulverizaciones Agrícolas}. 9º Congreso de AgroInformática (CAI) - 46° JAIIO. Córdoba, Argentina. 2017.
+
+\bibitem{campero} Matias Micheletto, Gabriel Eggly, Juan P. D'Amico, Santiago Crocioni. \textit{Desarrollo de una Aplicación Híbrida para Cálculos de Siembra}. 13º Congreso de AgroInformática (CAI) - 50° JAIIO). Córdoba, Argentina. 2021.
+
+\bibitem{tschorsch2022} E. Daniel and F. Tschorsch. \textit{IPFS and Friends: A Qualitative Comparison of Next Generation Peer-to-Peer Data Networks}. IEEE Communications Surveys \& Tutorials, vol. 24, no. 1, pp. 31-52, Firstquarter 2022, doi: 10.1109/COMST.2022.3143147.
+
+\bibitem{guidi2021} Barbara Guidi, Andrea Michienzi, Laura Ricci. \textit{Data Persistence in Decentralized Social Applications: the IPFS approach}. IEEE 18th Annual Consumer Communications \& Networking Conference (CCNC). 2021. 978-1-7281-9794-4/21, doi: 10.1109/CCNC49032.2021.9369473.
+
+\bibitem{shen2019}J. Shen, Y. Li, Y. Zhou and X. Wang, "Understanding I/O Performance of IPFS Storage: A Client's Perspective," 2019 IEEE/ACM 27th International Symposium on Quality of Service (IWQoS), Phoenix, AZ, USA, 2019, pp. 1-10, doi: 10.1145/3326285.3329052.
+
+\bibitem{cristea2020} Alexandru-Gabriel Cristea , Lenuta Alboaie , Andrei Panu, Vlad Radulescu. \textit{Offline Offline but still connected with IPFS based communication}. 24th International Conference on Knowledge-Based and Intelligent Information \& Engineering Systems. 2020. Procedia Computer Science 176 (2020) 1606-1612.
+
+\bibitem{boubiche2019} Djallel Eddine Boubiche, Muhammad Imran, Aneela Maqsood, Muhammad Shoaib. \textit{Mobile crowd sensing – Taxonomy, applications, challenges, and solutions}. Computers in Human Behavior. Volume 101,2019, Pages 352-370, ISSN 0747-5632. doi: 10.1016/j.chb.2018.10.028.
+
+\end{thebibliography}
+
+\end{document}
+ 

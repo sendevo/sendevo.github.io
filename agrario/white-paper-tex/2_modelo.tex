@@ -1,0 +1,93 @@
+\section{Modelo ontológico de tareas agropecuarias} \label{sec:modelo} 
+
+Las tareas agropecuarias son variadas dado el amplio espectro de productos y subproductos que se generan en esta actividad y las numerosas técnicas que son empleadas en el ámbito. Ejemplos de tareas agropecuarias pueden ser la siembra de cultivos desde cereales u oleaginosas hasta especies arbóreas, el arreo de ganado para cambio de lotes durante el pastoreo, el encierre y ordeñe de animales en tambos, las tareas de fertilización o riego de cultivos, la recolección y transporte de huevos en granjas apícolas o la construcción y mantenimiento de infraestructuras como silos, molinos o galpones, por mencionar algunos casos particulares. 
+
+En general podría decirse que una actividad agropecuaria puede ser descripta indicando el nombre de la tarea, el lugar y el momento en que se realiza, la o las personas encargadas de llevarla a cabo, los detalles de cómo se realizará esta tarea y los motivos por los que se ejecuta. Es decir, la descripción se realiza respondiendo a una serie de pronombres interrogativos que, en el contexto del periodismo y criminalística, se los suele conocer como las ``5W y 1H'', los cuales son: qué, dónde, cuándo, quién/quiénes, cómo y por qué.
+
+Teniendo en cuenta este esquema, se propone un modelo de tarea que se compone de secciones donde cada una contiene una lista de ítems clasificados según la siguientes categorías:
+
+\begin{itemize}
+    \item \textbf{Actividad (qué):} este ítem permite entender el contexto de la tarea. Las actividades pueden organizarse de forma jerárquica permitiendo establecer una taxonomía, por ejemplo ``siembra directa'' y ``siembra convencional'' son subtipos de ``siembra'' y que junto con ``pulverización'' son a la vez subtipos de ``labores de producción de cultivos''.
+    \item \textbf{Ubicación (dónde):} dentro de esta sección es posible indicar el espacio geográfico en el cual se realizará la tarea. Existen, en el contexto de este sistema, tres tipos de ubicaciones: marcadores (un sitio puntual), líneas (trayectoria compuesta por la unión de múltiples puntos) y  polígonos (la superficie contenida en un conjunto de al menos tres puntos). Los marcadores permiten ubicar actividades puntuales, como el emplazamiento de un galpón o un molino. Las líneas pueden emplearse para describir caminos, alambrados o silos de pastura picada. Finalmente, los polígonos son apropiados para delimitar e identificar parcelas, lotes o campos.
+    \item \textbf{Fechas (cuándo):} la fecha indica el momento o periodo de tiempo pasado o futuro en que fue realizada o se realizará la tarea en cuestión.
+    \item \textbf{Personas (quién/quiénes):} este ítem hace referencia a la o las personas físicas o jurídicas encargadas de realizar la tarea, o que de manera indirecta guardan alguna relación con esta tarea.
+    \item \textbf{Razones (por qué):} se introduce este ítem para describir los motivos por los que se realiza cierta tarea, por ejemplo, condiciones climáticas o de mercado, oportunidad, entre otras.
+    \item \textbf{Parámetros (cómo):} esta sección contiene variables y parámetros con sus respectivos valores y unidades de medida y demás detalles descriptivos que permitan conocer la configuración utilizada en las herramientas o la forma en que debe ejecutarse la tarea.
+\end{itemize}
+
+\subsection{Ejemplos}
+A continuación se muestran dos ejemplos de tareas agropecuarias que son descriptas empleando el modelo propuesto. Se proponen dos tareas de características diferentes, como lo son las labores con maquinaria en producción de cultivos, en el ejemplo, pulverización de un lote y por otro lado, la construcción de infraestructura para ganado, en este caso, un alambrado tradicional.
+
+\subsubsection{Ejemplo 1: Barbecho químico sobre lote.} Este ejemplo ilustra los datos registrados en el caso de la realización de una pulverización con agroquímicos como tarea de preparación (barbecho) de un lote de 60 has. por parte de un contratista hipotético (Contratista X). En el campo de fecha se establece un período de aplicación recomendado dentro del cual deben buscarse las condiciones climáticas apropiadas. Por último, en la descripción se especifican los parámetros operativos como volumen de pulverización y presión de trabajo del equipo y los insumos a aplicar, junto con el correspondiente porcentaje de dilución.
+\begin{itemize}
+    \item \textbf{Actividad (qué):} Cultivos $\rightarrow$ Pulverización.
+    \item \textbf{Ubicación (dónde):} Lote IV (polígono georeferenciado de 60 has). 
+    \item \textbf{Fechas (cuándo):} Entre el 23/02/2023 y el 28/02/2023.
+    \item \textbf{Personas (quién/quiénes):} Contratista X. 
+    \item \textbf{Razones (por qué):} Barbecho químico previo a siembra de avena. 
+    \item \textbf{Parámetros (cómo):} 
+    
+    \begin{center}
+        \begin{tabular}{ |l|r|c| } 
+            \hline
+            \textbf{Parámetro} & \textbf{Valor} & \textbf{Unidad} \\ 
+            \hline
+            Capacidad de tanque & 3000 & l \\ 
+            Volumen de pulverización & 50 & l/ha \\ 
+            Presión de trabajo & 2 & bar \\ 
+            Glifosato & 3 & l/ha \\ 
+            2,4D & 0.8 & l/ha \\ 
+            Coadyuvante & 60 & ml/100 l \\ 
+            \hline
+        \end{tabular}
+        \quad
+        \begin{tabular}{ |l|r|c| } 
+            \hline
+            \textbf{Insumo} & \textbf{Total} & \textbf{Unidad} \\ 
+            \hline
+            Agua & 3000 & l \\ 
+            Glifosato & 180 & l \\ 
+            2,4D & 48 & l \\ 
+            Coadyuvante & 1.8 & l \\ 
+            \hline
+        \end{tabular}
+    \end{center}
+\end{itemize}
+
+\subsubsection{Ejemplo 2: Construcción de un alambrado.} La tarea de este ejemplo describe la construcción de un alambrado tradicional a lo largo de un emplazamiento especificado mediante coordenadas gps. Similarmente al caso anterior se asigna la tarea a un contratista hipotético y dentro de los parámetros se especifica el tipo de alambrado y los insumos totales requeridos.
+
+\begin{itemize}
+    \item \textbf{Actividad (qué):} Infraestructura $\rightarrow$ Construcción.
+    \item \textbf{Ubicación (dónde):} Alambrado (línea recta georeferenciada de 350 m). 
+    \item \textbf{Fechas (cuándo):} 05/03/2023.
+    \item \textbf{Personas (quién/quiénes):} Alambrador X. 
+    \item \textbf{Razones (por qué):} Subdivisión de lote. 
+    \item \textbf{Parámetros (cómo):} 
+
+    \begin{center}
+        \begin{tabular}{ |l|r|c| } 
+            \hline
+            \textbf{Parámetro} & \textbf{Valor} & \textbf{Unidad} \\ 
+            \hline
+            Cant. hilos & 7 & hilos \\  
+            Medida claro & 12 & m \\ 
+            Varillas/claro & 7 & u \\   
+            \hline
+        \end{tabular}
+        \begin{tabular}{ |l|r|c| } 
+            \hline
+            \textbf{Insumo} & \textbf{Total} & \textbf{Unidad} \\ 
+            \hline
+            Alambre ovalado $\sfrac{17}{15}$ & 2500 & m \\ 
+            Alambre dulce & 50 & m \\ 
+            Varilla ceb. $\sfrac{11}{2}\cdot\sfrac{11}{2}\cdot1.2$ m & 210 & u \\ 
+            Poste quebracho 2.5 m & 30 & u \\ 
+            Torniquete golondrina & 14 & u \\ 
+            \hline
+        \end{tabular}
+    \end{center}
+\end{itemize}
+
+Ambos ejemplos pueden modelar tanto un presupuesto elaborado por el contratista como una orden de trabajo generada por un productor o profesional, dependiendo del contexto, pero explican una misma tarea que se realizó o que se pretendía ejecutar en algún momento. Si bien los dos casos ilustran actividades diferentes, al estar enmarcadas en un mismo formato, es posible recompilar información útil, extraer patrones o simplemente realizar consultas sobre una misma base de datos en la que fueron registradas estas tareas, como se muestra más adelante, en la sección \ref{sec:db_query}.
+
+En la sección \ref{sec:software} se detallan las cuestiones técnicas relacionadas con la definición del formato para la representación de cada sección del modelo de tareas y con el fin de ilustrar el potencial del modelo, se ejemplifican distintos casos de uso por medio de la generación de consultas que se pueden realizar a la base de datos para extraer información útil.
