@@ -190,7 +190,7 @@
         const emailValue = document.getElementById('email').value;
         if(emailValue){
             const database = firebase.database();
-            database.ref("presipedia_suscribers")
+            database.ref("presipedia_subscribers")
                 .push({email: emailValue})
                 .then(res => {
                     console.log({type:"success", message:"Gracias por contactarse. Le responderemos a la brevedad"});

@@ -28,6 +28,7 @@ $("#contact-form").submit(function(e) {
     const formData = $(this).serializeArray();    
     if(formData.length > 0 && formData.every(el => el.value !== "")){
         const formObject = formData.reduce((a,b) => ({...a, [b.name]: b.value}), {});
+        formObject["date"] = new Date().toISOString();
         //console.log(formObject);
         const database = firebase.database();
         database.ref("sendevo_messages")
@@ -36,6 +37,7 @@ $("#contact-form").submit(function(e) {
             resultMessage({type:"success", message:"Gracias por su mensaje. Le responderemos a la brevedad"});
         })
         .catch(console.warn);
+        
     }else{
         resultMessage({type:"danger", message:"Debe completar todos los campos"})
     }
