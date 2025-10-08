@@ -191,7 +191,7 @@
         if(emailValue){
             const database = firebase.database();
             database.ref("presipedia_subscribers")
-                .push({email: emailValue})
+                .push({email: emailValue, date: new Date().toISOString()})
                 .then(res => {
                     console.log({type:"success", message:"Gracias por contactarse. Le responderemos a la brevedad"});
                     $("#email").val("");

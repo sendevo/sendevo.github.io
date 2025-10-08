@@ -28,7 +28,8 @@ $("#contact-form").submit(function(e) {
     const formData = $(this).serializeArray();    
     if(formData.length > 0 && formData.every(el => el.value !== "")){
         const formObject = formData.reduce((a,b) => ({...a, [b.name]: b.value}), {});
-        formObject["date"] = new Date().toISOString();
+        formObject.date = new Date().toISOString();
+        formObject.read = false;
         //console.log(formObject);
         const database = firebase.database();
         database.ref("sendevo_messages")

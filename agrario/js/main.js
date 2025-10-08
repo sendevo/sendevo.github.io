@@ -123,7 +123,7 @@ const database = firebase.database();
         if(newSubscriber !== ""){
             //console.log(formObject);            
             database.ref("agrario_subscribers")
-            .push({email:newSubscriber})
+            .push({email:newSubscriber, date: new Date().toISOString()})
             .then(res => {
                 emailInput.value = "";
                 toastr.success('Email suscrito! Próximamente te enviaremos novedades');
