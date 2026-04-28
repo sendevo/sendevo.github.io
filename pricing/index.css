@@ -1,0 +1,103 @@
+/* =============================================================================
+   Sendevo – Pricing Calculator
+   Custom styles (Tailwind utility overrides + component-specific rules)
+   Brand palette: accent #43b4da | dark #2c3e4d | body #44525f
+============================================================================= */
+
+/* ─── Base / global overrides ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  color: #44525f;
+  background: #f7f9fb;
+  /* make room for the fixed header */
+  padding-top: 72px;
+}
+
+/* ─── Checkbox custom style ─────────────────────────────────────────────── */
+.service-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c8d6df;
+  border-radius: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+  position: relative;
+}
+.service-checkbox:checked {
+  background-color: #43b4da;
+  border-color: #43b4da;
+}
+.service-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px; top: 2px;
+  width: 6px; height: 11px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.service-checkbox:focus {
+  outline: 2px solid #43b4da;
+  outline-offset: 2px;
+}
+
+/* ─── Service card hover / selected state ───────────────────────────────── */
+.service-card {
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  border: 2px solid transparent;
+}
+.service-card:hover {
+  box-shadow: 0 4px 18px rgba(67,180,218,.18);
+  transform: translateY(-2px);
+}
+.service-card.selected {
+  border-color: #43b4da;
+  background: #f0fafd;
+}
+
+/* ─── Category badge ─────────────────────────────────────────────────────── */
+.cat-badge {
+  font-family: 'Fjalla One', sans-serif;
+  letter-spacing: .08em;
+}
+
+/* ─── Summary sidebar ───────────────────────────────────────────────────── */
+#summary-sidebar {
+  position: sticky;
+  top: 88px; /* below fixed header */
+  max-height: calc(100vh - 108px);
+  overflow-y: auto;
+}
+
+/* ─── Smooth transition for summary list items ───────────────────────────── */
+#selected-list li {
+  animation: fadeIn .2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── Mobile summary bar (bottom sheet) ─────────────────────────────────── */
+#mobile-summary-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 40;
+  transform: translateY(calc(100% - 64px));
+  transition: transform .3s ease;
+}
+#mobile-summary-bar.open {
+  transform: translateY(0);
+}
+#mobile-summary-bar .drag-handle {
+  width: 40px; height: 4px;
+  background: #c8d6df;
+  border-radius: 2px;
+  margin: 0 auto;
+}
