@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es-AR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quandra - Monitoreo Inteligente de Calidad Vial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#22b1e3',
+                        secondary: '#111111',
+                        accent: '#f59e0b', // Ámbar para alertas/visualizaciones
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased flex flex-col min-h-screen">
+
+    <header class="bg-secondary sticky top-0 z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <img src="quandra-banner.png" alt="Quandra Logo" class="h-10 w-auto filter brightness-0 invert">
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#problema" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">El Problema</a>
+                    <a href="#solucion" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Cómo Funciona</a>
+                    <a href="#dashboard" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Plataforma</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="#contacto" class="bg-primary hover:bg-blue-500 text-white px-5 py-2 rounded-md text-sm font-medium transition-colors shadow-sm">
+                        Solicitar Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="bg-secondary text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative z-10">
+                <div class="lg:w-2/3">
+                    <span class="text-primary font-semibold tracking-wider uppercase text-sm mb-4 block">Inteligencia Vial para Municipios</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                        Datos reales para mejores caminos.
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
+                        Quandra es un sistema de monitoreo de la calidad de caminos rurales que evalúa el estado de las vías basándose en las variaciones de velocidad de los vehículos[cite: 13]. Optimiza tu presupuesto de mantenimiento sabiendo exactamente dónde intervenir.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contacto" class="bg-primary hover:bg-blue-500 text-white px-8 py-3 rounded-md font-semibold text-center transition-all shadow-lg shadow-primary/30 flex items-center justify-center">
+                            Solicitar una demostración
+                            <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.sendevo.quandragpstracker" target="_blank" class="bg-transparent border border-gray-600 hover:border-gray-400 text-white px-8 py-3 rounded-md font-semibold text-center transition-all flex items-center justify-center">
+                            <i data-lucide="smartphone" class="mr-2 w-5 h-5"></i>
+                            Ver app en Google Play
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
+                <img src="quandra_logo_512.png" alt="" class="object-cover h-full transform scale-150 translate-x-1/4">
+            </div>
+        </section>
+
+        <section id="problema" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">El desafío de la gestión vial tradicional</h2>
+                    <p class="text-lg text-gray-600">
+                        Gestionar extensas redes de caminos urbanos, de tierra o ripio con recursos limitados requiere priorización. Los métodos tradicionales ya no son suficientes.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="eye-off" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Inspecciones lentas</h3>
+                        <p class="text-gray-600">Los relevamientos visuales (patrullajes) consumen mucho tiempo, combustible y personal. Es imposible recorrer toda la red con la frecuencia necesaria.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="message-square-warning" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Datos reactivos</h3>
+                        <p class="text-gray-600">Depender exclusivamente de las quejas o reclamos de los vecinos significa que el municipio siempre reacciona cuando el problema ya es severo e intransitable.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="trending-down" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Impacto económico</h3>
+                        <p class="text-gray-600">El mal estado de los caminos secundarios rompe vehículos, frena la logística rural, aísla comunidades y genera pérdidas millonarias en producción.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solucion" class="py-20 bg-gray-50 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Colaboración inteligente (Crowdsensing)</h2>
+                        <p class="text-lg text-gray-600 mb-8">
+                            Nuestra solución se basa en una red colaborativa. La aplicación funciona con cualquier tipo de vehículo—auto, camioneta, camión, colectivo, tractor o maquinaria pesada[cite: 14]. Sin necesidad de instalar costosos sensores de hardware dedicados.
+                        </p>
+                        
+                        <div class="space-y-8">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold">1</div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-xl font-semibold mb-2">Recolección Pasiva</h4>
+                                    <p class="text-gray-600">La app detecta automáticamente el inicio y fin de cada viaje, registra tu ruta en segundo plano y sincroniza los datos[cite: 16]. Funciona offline: guarda los viajes localmente y los sincroniza al recuperar la señal[cite: 17].</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold">2</div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-xl font-semibold mb-2">El "Score" de Calidad</h4>
+                                    <p class="text-gray-600">Nuestro motor en la nube analiza automáticamente el registro de movimiento de cada viaje[cite: 14]. Al cruzar miles de datos de comportamiento de manejo, el sistema pinta mágicamente de rojo a verde qué tramos están deteriorados y cuáles en buen estado.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-bold">3</div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-xl font-semibold mb-2">Tablero de Control</h4>
+                                    <p class="text-gray-600">El municipio accede a un mapa en tiempo real que consolida toda la información, permitiendo planificar las obras de perfilado o bacheo basándose en evidencia dura.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <img src="trip_details.png" alt="Resumen de viaje en la app Quandra" class="rounded-2xl shadow-2xl mx-auto max-w-sm border border-gray-800">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard" class="py-20 bg-secondary text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Visualiza toda tu red vial en un solo lugar</h2>
+                    <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                        Identifica rápidamente los sectores críticos. Nuestro mapa de calor traduce millones de puntos de datos en información clara y procesable para la toma de decisiones.
+                    </p>
+                </div>
+                
+                <div class="relative rounded-xl overflow-hidden shadow-2xl border border-gray-700">
+                    <img src="quandra_dashboard_mockup.png" alt="Dashboard de Quandra" class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <img src="trip_details_2.png" alt="Distribución de velocidades y ruta" class="rounded-xl shadow-lg border border-gray-200">
+                    </div>
+                    <div>
+                        <div class="mb-10">
+                            <div class="inline-flex items-center justify-center p-3 bg-blue-100 rounded-md mb-4 text-primary">
+                                <i data-lucide="camera" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Reportes ciudadanos geolocalizados</h3>
+                            <p class="text-gray-600 text-lg">
+                                Complementa la recolección automática con cualificaciones visuales. Los ciudadanos y transportistas pueden colocar marcadores en el mapa con fotografías precisas de baches, árboles caídos o cortes, nutriendo tu tablero con evidencia concreta de los incidentes.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <div class="inline-flex items-center justify-center p-3 bg-amber-100 rounded-md mb-4 text-amber-600">
+                                <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Auditoría y evolución histórica</h3>
+                            <p class="text-gray-600 text-lg">
+                                Quandra retiene el historial de tu red. Compara la calidad de un camino antes y después de una intervención de mantenimiento, o evalúa cómo se degrada la superficie tras la temporada de lluvias o la cosecha gruesa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="text-lg font-semibold text-gray-500 uppercase tracking-wide mb-8">Municipios e Instituciones que innovan con Quandra</h3>
+                <div class="flex flex-wrap justify-center gap-8 opacity-60 grayscale">
+                    <div class="w-40 h-16 bg-gray-300 rounded-md flex items-center justify-center text-sm text-gray-600 border border-gray-400 border-dashed">Logo Municipio</div>
+                    <div class="w-40 h-16 bg-gray-300 rounded-md flex items-center justify-center text-sm text-gray-600 border border-gray-400 border-dashed">Logo Comuna</div>
+                    <div class="w-40 h-16 bg-gray-300 rounded-md flex items-center justify-center text-sm text-gray-600 border border-gray-400 border-dashed">Empresa Logística</div>
+                    <div class="w-40 h-16 bg-gray-300 rounded-md flex items-center justify-center text-sm text-gray-600 border border-gray-400 border-dashed">Consorcio Caminero</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="py-24 bg-white relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-secondary rounded-3xl p-10 md:p-16 shadow-2xl overflow-hidden relative text-white">
+                    <div class="relative z-10 grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-4">Transformá la gestión vial de tu municipio</h2>
+                            <p class="text-gray-300 mb-8">
+                                Dejá de adivinar y comenzá a planificar con datos certeros. Solicita una demostración gratuita de nuestra plataforma institucional.
+                            </p>
+                            <ul class="space-y-4 text-gray-300">
+                                <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-primary mr-3"></i> Tablero de control completo</li>
+                                <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-primary mr-3"></i> App para flota municipal</li>
+                                <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-primary mr-3"></i> Soporte técnico especializado</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <form action="#" method="POST" class="space-y-4">
+                                <div>
+                                    <label for="nombre" class="sr-only">Nombre completo</label>
+                                    <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" class="w-full px-4 py-3 rounded-md bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                </div>
+                                <div>
+                                    <label for="municipio" class="sr-only">Municipio / Organización</label>
+                                    <input type="text" id="municipio" name="municipio" placeholder="Municipio / Organización" class="w-full px-4 py-3 rounded-md bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="sr-only">Correo electrónico</label>
+                                    <input type="email" id="email" name="email" placeholder="Correo electrónico institucional" class="w-full px-4 py-3 rounded-md bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                </div>
+                                <div>
+                                    <label for="mensaje" class="sr-only">Mensaje</label>
+                                    <textarea id="mensaje" name="mensaje" rows="3" placeholder="¿Cómo podemos ayudarte?" class="w-full px-4 py-3 rounded-md bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-primary hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-md transition-colors">
+                                    Enviar solicitud
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#111111] border-t border-gray-800 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <img src="quandra-banner.png" alt="Quandra" class="h-8 w-auto filter brightness-0 invert mb-6">
+                <p class="mb-6 max-w-sm text-sm">
+                    Evaluación automatizada de caminos rurales mediante tecnología crowdsensing para municipios inteligentes.
+                </p>
+                <p class="text-sm">
+                    Un producto de <strong>Sendevo Software</strong>[cite: 12].
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-semibold mb-4">Producto</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#solucion" class="hover:text-primary transition-colors">Cómo funciona</a></li>
+                    <li><a href="#dashboard" class="hover:text-primary transition-colors">Dashboard Municipal</a></li>
+                    <li><a href="#contacto" class="hover:text-primary transition-colors">Precios y Demo</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-semibold mb-4">Legal y Soporte</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="mailto:holasendevo@gmail.com" class="hover:text-primary transition-colors">Soporte Técnico</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Política de Privacidad</a> [cite: 22]</li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Términos de Servicio</a> [cite: 22]</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-sm">
+            <p>&copy; 2026 Sendevo Software. Todos los derechos reservados.</p>
+            <div class="mt-4 md:mt-0">
+                 <a href="https://play.google.com/store/apps/details?id=com.sendevo.quandragpstracker" class="flex items-center hover:text-white transition-colors" target="_blank">
+                    <i data-lucide="play" class="w-4 h-4 mr-2"></i>
+                    Quandra GPS Tracker en Google Play
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

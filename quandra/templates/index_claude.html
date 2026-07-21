@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es-AR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quandra — Inteligencia vial para municipios</title>
+<meta name="description" content="Quandra convierte los viajes de tu flota en un mapa de calidad vial en tiempo real. Priorizá el mantenimiento de caminos con datos, no con suposiciones.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#22b1e3',
+          secondary: '#111111',
+          accent: '#f59e0b',
+          qgood: '#22c55e',
+          qbad: '#ef4444'
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  /* ---- Signature element: animated quality strip ---- */
+  .qstrip-vehicle {
+    offset-path: path('M 0,20 L 900,20');
+    animation: driveAlong 7s linear infinite;
+  }
+  @keyframes driveAlong {
+    0%   { offset-distance: 0%; }
+    100% { offset-distance: 100%; }
+  }
+  .qstrip-pulse {
+    animation: pulseDot 1.8s ease-in-out infinite;
+  }
+  @keyframes pulseDot {
+    0%, 100% { r: 5; opacity: 1; }
+    50% { r: 8; opacity: 0.55; }
+  }
+  .score-tick { animation: fadeShift 9s ease-in-out infinite; }
+  @keyframes fadeShift {
+    0%, 30% { opacity: 1; }
+    35%, 65% { opacity: 0.4; }
+    70%, 100% { opacity: 1; }
+  }
+
+  .segment-hover:hover .segment-tooltip { opacity: 1; transform: translateY(-4px); }
+  .segment-tooltip { transition: all 0.15s ease; }
+
+  .fade-up { animation: fadeUp 0.6s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+  :focus-visible { outline: 2px solid #22b1e3; outline-offset: 2px; }
+</style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+<!-- ============ HEADER ============ -->
+<header class="bg-secondary sticky top-0 z-50 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <!-- Wordmark placeholder: swap for real <img src="logo.svg"> when brand asset is available -->
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <span class="relative flex items-center justify-center w-9 h-9 rounded-lg bg-primary/15 border border-primary/30">
+          <i data-lucide="route" class="w-5 h-5 text-primary"></i>
+        </span>
+        <span class="text-white font-bold text-xl tracking-tight">Quandra</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#problema" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">El problema</a>
+        <a href="#solucion" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Cómo funciona</a>
+        <a href="#dashboard" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Plataforma</a>
+        <a href="#reportes" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Reportes ciudadanos</a>
+      </nav>
+
+      <a href="#contacto" class="bg-primary hover:bg-sky-400 text-secondary px-5 py-2.5 rounded-md text-sm font-semibold transition-colors">
+        Solicitar demo
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="bg-secondary text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true"
+         style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-28 relative z-10">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 text-primary font-semibold tracking-wide uppercase text-xs mb-5 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+          <i data-lucide="satellite" class="w-3.5 h-3.5"></i>
+          Crowdsensing vial para municipios
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight mb-6 leading-[1.08]">
+          Cada viaje es un dato. <span class="text-primary">Cada dato, un camino mejor.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
+          Quandra convierte el comportamiento de manejo de tu flota en un mapa de calidad vial permanente y objetivo. Sabé exactamente qué tramo se deterioró, cuándo empezó y cuánto mejoró después de la obra — sin esperar el próximo reclamo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contacto" class="bg-primary hover:bg-sky-400 text-secondary px-8 py-3.5 rounded-md font-semibold text-center transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+            Solicitar una demostración
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.sendevo.quandragpstracker" target="_blank" rel="noopener"
+             class="border border-white/20 hover:border-white/40 text-white px-8 py-3.5 rounded-md font-semibold text-center transition-all flex items-center justify-center gap-2">
+            <i data-lucide="smartphone" class="w-4 h-4"></i>
+            Quandra GPS Tracker en Google Play
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signature element: live "quality strip" — the core mechanic shown, not described -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 relative z-10">
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <div class="flex items-center gap-2 text-sm text-gray-400 font-mono">
+            <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i>
+            RUTA PROVINCIAL 7 · TRAMO KM 12–18
+          </div>
+          <div class="score-tick flex items-center gap-2 text-sm font-mono">
+            <span class="text-gray-500">quality_score promedio del tramo</span>
+            <span class="text-qgood font-semibold">0.94</span>
+          </div>
+        </div>
+
+        <svg viewBox="0 0 900 90" class="w-full h-auto" role="img" aria-label="Franja animada mostrando la calidad de un tramo de camino según el score calculado a partir de los datos de viajes">
+          <defs>
+            <linearGradient id="roadGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"  stop-color="#22c55e"/>
+              <stop offset="30%" stop-color="#22c55e"/>
+              <stop offset="42%" stop-color="#f59e0b"/>
+              <stop offset="55%" stop-color="#ef4444"/>
+              <stop offset="68%" stop-color="#f59e0b"/>
+              <stop offset="80%" stop-color="#22c55e"/>
+              <stop offset="100%" stop-color="#22c55e"/>
+            </linearGradient>
+          </defs>
+
+          <!-- base road -->
+          <rect x="0" y="34" width="900" height="14" rx="7" fill="url(#roadGradient)"/>
+
+          <!-- segment hover zones with tooltips -->
+          <g class="segment-hover" tabindex="0">
+            <rect x="0" y="20" width="260" height="42" fill="transparent"/>
+            <g class="segment-tooltip opacity-0" transform="translate(60,0)">
+              <rect x="0" y="0" width="140" height="34" rx="6" fill="#0a0a0a" stroke="#22c55e" stroke-width="1"/>
+              <text x="70" y="22" text-anchor="middle" class="font-mono" fill="#22c55e" font-size="13">score: 0.97</text>
+            </g>
+          </g>
+          <g class="segment-hover" tabindex="0">
+            <rect x="330" y="20" width="220" height="42" fill="transparent"/>
+            <g class="segment-tooltip opacity-0" transform="translate(370,0)">
+              <rect x="0" y="0" width="150" height="34" rx="6" fill="#0a0a0a" stroke="#ef4444" stroke-width="1"/>
+              <text x="75" y="22" text-anchor="middle" class="font-mono" fill="#ef4444" font-size="13">score: 0.51 ⚠</text>
+            </g>
+          </g>
+          <g class="segment-hover" tabindex="0">
+            <rect x="620" y="20" width="280" height="42" fill="transparent"/>
+            <g class="segment-tooltip opacity-0" transform="translate(690,0)">
+              <rect x="0" y="0" width="140" height="34" rx="6" fill="#0a0a0a" stroke="#22c55e" stroke-width="1"/>
+              <text x="70" y="22" text-anchor="middle" class="font-mono" fill="#22c55e" font-size="13">score: 0.95</text>
+            </g>
+          </g>
+
+          <!-- moving vehicle marker -->
+          <circle class="qstrip-vehicle qstrip-pulse" r="5" fill="#ffffff" stroke="#22b1e3" stroke-width="2"/>
+        </svg>
+
+        <div class="flex items-center justify-between mt-4 text-xs font-mono text-gray-500">
+          <span>km 12</span>
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-qbad"></span>tramo con caída de velocidad sostenida — candidato a inspección</span>
+          <span>km 18</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEMA ============ -->
+  <section id="problema" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-16">
+        <span class="text-primary font-semibold text-sm uppercase tracking-wide">El desafío</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-5 leading-tight">Gestionar una red vial extensa con recursos limitados exige priorizar bien</h2>
+        <p class="text-lg text-gray-600 leading-relaxed">Caminos urbanos, rurales, de tierra o ripio — cientos de kilómetros, y un presupuesto que nunca alcanza para todo. Los métodos tradicionales de relevamiento no escalan al ritmo en que se deteriora la red.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-8 rounded-2xl border border-gray-200 hover:border-primary/40 transition-colors">
+          <div class="w-11 h-11 bg-red-50 text-qbad rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="eye-off" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2.5">Inspecciones que no escalan</h3>
+          <p class="text-gray-600 leading-relaxed">Los patrullajes visuales consumen tiempo, combustible y personal. Recorrer toda la red con la frecuencia necesaria es, en la práctica, imposible.</p>
+        </div>
+        <div class="p-8 rounded-2xl border border-gray-200 hover:border-primary/40 transition-colors">
+          <div class="w-11 h-11 bg-amber-50 text-accent rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="message-square-warning" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2.5">Datos que llegan tarde</h3>
+          <p class="text-gray-600 leading-relaxed">Depender solo de los reclamos vecinales significa reaccionar cuando el problema ya es severo — y el camino, intransitable.</p>
+        </div>
+        <div class="p-8 rounded-2xl border border-gray-200 hover:border-primary/40 transition-colors">
+          <div class="w-11 h-11 bg-sky-50 text-primary rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="trending-down" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2.5">Costo económico real</h3>
+          <p class="text-gray-600 leading-relaxed">Un camino en mal estado rompe vehículos, frena la logística, aísla comunidades y golpea directamente la producción local.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUCIÓN / CÓMO FUNCIONA ============ -->
+  <section id="solucion" class="py-20 md:py-28 bg-gray-50 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <span class="text-primary font-semibold text-sm uppercase tracking-wide">Cómo funciona</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-6 leading-tight">Colaboración inteligente, sin hardware dedicado</h2>
+          <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+            La app funciona con cualquier vehículo — auto, camioneta, camión, colectivo, tractor o maquinaria vial — sin sensores adicionales. Solo el teléfono que ya llevan a bordo.
+          </p>
+
+          <ol class="space-y-8">
+            <li class="flex gap-5">
+              <div class="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-primary text-secondary font-bold text-sm">1</div>
+              <div>
+                <h4 class="text-lg font-semibold mb-1.5">Recolección pasiva</h4>
+                <p class="text-gray-600 leading-relaxed">La app detecta el inicio y fin de cada viaje automáticamente y registra el recorrido en segundo plano. Sin señal, guarda los datos localmente y sincroniza al reconectar.</p>
+              </div>
+            </li>
+            <li class="flex gap-5">
+              <div class="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-primary text-secondary font-bold text-sm">2</div>
+              <div>
+                <h4 class="text-lg font-semibold mb-1.5">Cálculo del quality_score</h4>
+                <p class="text-gray-600 leading-relaxed">Por cada punto del camino, comparamos la velocidad instantánea de cada conductor contra su propia velocidad promedio del viaje. Miles de comparaciones acumuladas revelan dónde la gente frena de forma sistemática — más allá de curvas o rotondas esperables.</p>
+              </div>
+            </li>
+            <li class="flex gap-5">
+              <div class="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-primary text-secondary font-bold text-sm">3</div>
+              <div>
+                <h4 class="text-lg font-semibold mb-1.5">Tablero de control municipal</h4>
+                <p class="text-gray-600 leading-relaxed">Un mapa vivo de tu red vial, coloreado por score, listo para planificar obras de bacheo o perfilado con evidencia — no con intuición.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Mock trip-detail card, built in HTML/CSS — no external image dependency -->
+        <div class="fade-up bg-secondary rounded-2xl p-1.5 shadow-2xl max-w-sm mx-auto lg:sticky lg:top-28">
+          <div class="rounded-xl overflow-hidden bg-[#0d0d0d]">
+            <div class="px-5 pt-5 pb-4 border-b border-white/10">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-white font-semibold text-sm">Viaje finalizado</span>
+                <span class="text-xs font-mono text-gray-500">14:32</span>
+              </div>
+              <p class="text-xs text-gray-500 font-mono">18.4 km · 22 min</p>
+            </div>
+            <div class="p-5">
+              <div class="flex items-end justify-between mb-1">
+                <span class="text-gray-400 text-xs">quality_score promedio del viaje</span>
+              </div>
+              <div class="flex items-baseline gap-2 mb-5">
+                <span class="text-4xl font-bold font-mono text-qgood">0.91</span>
+                <span class="text-xs text-gray-500">/ 1.00</span>
+              </div>
+
+              <svg viewBox="0 0 280 50" class="w-full mb-5" aria-hidden="true">
+                <polyline points="0,30 30,25 55,32 80,20 110,38 140,42 165,28 195,18 220,22 250,15 280,20"
+                          fill="none" stroke="#22b1e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="140" cy="42" r="4" fill="#ef4444"/>
+                <circle cx="250" cy="15" r="4" fill="#22c55e"/>
+              </svg>
+
+              <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+                <div class="bg-white/5 rounded-lg p-3">
+                  <p class="text-gray-500 mb-1">Vel. promedio</p>
+                  <p class="text-white font-semibold text-sm">47 km/h</p>
+                </div>
+                <div class="bg-white/5 rounded-lg p-3">
+                  <p class="text-gray-500 mb-1">Puntos registrados</p>
+                  <p class="text-white font-semibold text-sm">312</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DASHBOARD ============ -->
+  <section id="dashboard" class="py-20 md:py-28 bg-secondary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-primary font-semibold text-sm uppercase tracking-wide">La plataforma</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-5 leading-tight">Toda tu red vial, en un solo mapa</h2>
+        <p class="text-gray-400 text-lg leading-relaxed">Millones de puntos de datos, traducidos en un mapa de calor que se lee de un vistazo. Filtrá por zona, período o tipo de camino para planificar con precisión.</p>
+      </div>
+
+      <!-- Mock dashboard, built entirely in SVG/HTML — swap for a real product screenshot when available -->
+      <div class="rounded-2xl border border-white/10 bg-[#0a0a0a] overflow-hidden shadow-2xl">
+        <div class="flex items-center gap-2 px-5 py-3.5 border-b border-white/10 bg-white/[0.02]">
+          <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
+          <span class="ml-3 text-xs font-mono text-gray-500">app.quandra.io/dashboard</span>
+        </div>
+
+        <div class="grid md:grid-cols-4">
+          <div class="md:col-span-3 p-4 md:p-6 border-b md:border-b-0 md:border-r border-white/10">
+            <svg viewBox="0 0 640 380" class="w-full h-auto rounded-lg" role="img" aria-label="Mapa simulado de una red vial coloreada por quality_score, con tramos en verde, ámbar y rojo, y marcadores de reportes ciudadanos">
+              <rect width="640" height="380" fill="#0d1117"/>
+              <g stroke-linecap="round" fill="none">
+                <path d="M 30,320 C 120,260 160,300 230,220" stroke="#22c55e" stroke-width="7"/>
+                <path d="M 230,220 C 280,180 300,190 340,140" stroke="#ef4444" stroke-width="7"/>
+                <path d="M 340,140 C 380,105 420,110 470,90" stroke="#22c55e" stroke-width="7"/>
+                <path d="M 60,120 C 130,150 170,140 230,220" stroke="#f59e0b" stroke-width="7"/>
+                <path d="M 230,220 C 260,260 300,270 360,300" stroke="#22c55e" stroke-width="7"/>
+                <path d="M 360,300 C 420,320 470,300 540,330" stroke="#ef4444" stroke-width="7"/>
+                <path d="M 470,90 C 500,140 520,180 540,330" stroke="#22c55e" stroke-width="7"/>
+                <path d="M 60,120 C 40,90 40,60 70,30" stroke="#22c55e" stroke-width="7"/>
+              </g>
+              <!-- citizen report pins -->
+              <g>
+                <circle cx="300" cy="175" r="7" fill="#f59e0b" stroke="#0a0a0a" stroke-width="2"/>
+                <circle cx="450" cy="310" r="7" fill="#f59e0b" stroke="#0a0a0a" stroke-width="2"/>
+                <circle cx="285" cy="150" r="7" fill="#f59e0b" stroke="#0a0a0a" stroke-width="2"/>
+              </g>
+            </svg>
+          </div>
+
+          <div class="p-6 space-y-5">
+            <div>
+              <p class="text-xs text-gray-500 font-mono mb-1">SEGMENTOS ANALIZADOS</p>
+              <p class="text-2xl font-bold font-mono">1.284</p>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 font-mono mb-1">SCORE PROMEDIO DE LA RED</p>
+              <p class="text-2xl font-bold font-mono text-qgood">0.83</p>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 font-mono mb-1">TRAMOS CRÍTICOS (&lt; 0.6)</p>
+              <p class="text-2xl font-bold font-mono text-qbad">17</p>
+            </div>
+            <div class="pt-2 border-t border-white/10">
+              <p class="text-xs text-gray-500 font-mono mb-2">ESCALA</p>
+              <div class="h-2 rounded-full" style="background: linear-gradient(90deg, #ef4444, #f59e0b, #22c55e);"></div>
+              <div class="flex justify-between text-[10px] font-mono text-gray-500 mt-1">
+                <span>0.0</span><span>1.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REPORTES CIUDADANOS + HISTÓRICO ============ -->
+  <section id="reportes" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+
+        <div>
+          <div class="w-11 h-11 bg-sky-50 text-primary rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="camera" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Reportes ciudadanos geolocalizados</h3>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            El quality_score te dice dónde mirar; el reporte fotográfico te muestra qué está pasando. Conductores y vecinos marcan baches, cortes o anegamientos directamente desde la app, con foto y ubicación exacta.
+          </p>
+          <div class="rounded-xl border border-gray-200 p-4 flex items-start gap-4 bg-gray-50">
+            <div class="w-16 h-16 rounded-lg bg-gray-300 flex items-center justify-center flex-shrink-0 text-gray-500">
+              <i data-lucide="image" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-gray-900 mb-0.5">Bache profundo — Av. Circunvalación km 4</p>
+              <p class="text-xs text-gray-500 font-mono">Reportado hace 2 h · coincide con score 0.44</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="w-11 h-11 bg-amber-50 text-accent rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Auditoría y evolución histórica</h3>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            Quandra conserva el historial completo de tu red — no solo el promedio actual. Compará el estado de un camino antes y después de una obra, o su degradación tras la temporada de lluvias.
+          </p>
+          <div class="rounded-xl border border-gray-200 p-5 bg-gray-50">
+            <div class="flex items-center justify-between text-xs font-mono text-gray-500 mb-3">
+              <span>Ruta 7, tramo km 12–18</span>
+              <span>últimos 6 meses</span>
+            </div>
+            <svg viewBox="0 0 400 100" class="w-full h-auto">
+              <polyline points="0,70 60,68 120,80 180,88 220,60 280,35 340,28 400,25"
+                        fill="none" stroke="#22b1e3" stroke-width="3" stroke-linecap="round"/>
+              <line x1="220" y1="10" x2="220" y2="95" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="224" y="20" class="font-mono" font-size="10" fill="#f59e0b">obra de bacheo</text>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLIENTES ============ -->
+  <section class="py-16 bg-gray-50 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-8">Municipios e instituciones que innovan con Quandra</h3>
+      <div class="flex flex-wrap justify-center gap-6">
+        <div class="w-40 h-16 bg-white rounded-lg flex items-center justify-center text-xs text-gray-400 border border-dashed border-gray-300">Logo de municipio</div>
+        <div class="w-40 h-16 bg-white rounded-lg flex items-center justify-center text-xs text-gray-400 border border-dashed border-gray-300">Logo de comuna</div>
+        <div class="w-40 h-16 bg-white rounded-lg flex items-center justify-center text-xs text-gray-400 border border-dashed border-gray-300">Empresa logística</div>
+        <div class="w-40 h-16 bg-white rounded-lg flex items-center justify-center text-xs text-gray-400 border border-dashed border-gray-300">Consorcio caminero</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section id="contacto" class="py-20 md:py-28 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-secondary rounded-3xl p-10 md:p-16 shadow-2xl text-white">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-3xl font-bold mb-4 leading-tight">Transformá la gestión vial de tu municipio</h2>
+            <p class="text-gray-300 mb-8 leading-relaxed">Dejá de adivinar y empezá a planificar con datos certeros. Coordinamos una demo gratuita adaptada a tu red vial.</p>
+            <ul class="space-y-3.5 text-gray-300">
+              <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary flex-shrink-0"></i>Tablero de control completo</li>
+              <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary flex-shrink-0"></i>App para flota municipal</li>
+              <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-primary flex-shrink-0"></i>Soporte técnico especializado</li>
+            </ul>
+          </div>
+
+          <!-- Form action is a placeholder — connect to your real submission endpoint -->
+          <form action="#" method="POST" class="space-y-4">
+            <div>
+              <label for="nombre" class="sr-only">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required
+                     class="w-full px-4 py-3 rounded-md bg-white/5 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+            </div>
+            <div>
+              <label for="municipio" class="sr-only">Municipio / organización</label>
+              <input type="text" id="municipio" name="municipio" placeholder="Municipio / organización" required
+                     class="w-full px-4 py-3 rounded-md bg-white/5 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+            </div>
+            <div>
+              <label for="email" class="sr-only">Correo institucional</label>
+              <input type="email" id="email" name="email" placeholder="Correo electrónico institucional" required
+                     class="w-full px-4 py-3 rounded-md bg-white/5 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+            </div>
+            <div>
+              <label for="mensaje" class="sr-only">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="3" placeholder="¿Cómo podemos ayudarte?"
+                        class="w-full px-4 py-3 rounded-md bg-white/5 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-sky-400 text-secondary font-bold py-3.5 rounded-md transition-colors">
+              Enviar solicitud
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-secondary border-t border-white/10 text-gray-400 py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="col-span-1 md:col-span-2">
+      <div class="flex items-center gap-2.5 mb-5">
+        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/15 border border-primary/30">
+          <i data-lucide="route" class="w-4 h-4 text-primary"></i>
+        </span>
+        <span class="text-white font-bold text-lg">Quandra</span>
+      </div>
+      <p class="mb-5 max-w-sm text-sm leading-relaxed">Monitoreo continuo de calidad vial mediante crowdsensing, pensado para municipios que necesitan priorizar mantenimiento con datos reales.</p>
+      <p class="text-sm">Un producto de <strong class="text-white">Sendevo Software</strong>.</p>
+    </div>
+
+    <div>
+      <h4 class="text-white font-semibold mb-4 text-sm">Producto</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="#solucion" class="hover:text-primary transition-colors">Cómo funciona</a></li>
+        <li><a href="#dashboard" class="hover:text-primary transition-colors">Dashboard municipal</a></li>
+        <li><a href="#contacto" class="hover:text-primary transition-colors">Precios y demo</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-semibold mb-4 text-sm">Legal y soporte</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="mailto:holasendevo@gmail.com" class="hover:text-primary transition-colors">Soporte técnico</a></li>
+        <li><a href="#" class="hover:text-primary transition-colors">Política de privacidad</a></li>
+        <li><a href="#" class="hover:text-primary transition-colors">Términos de servicio</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+    <p>&copy; 2026 Sendevo Software. Todos los derechos reservados.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.sendevo.quandragpstracker" target="_blank" rel="noopener"
+       class="flex items-center gap-2 hover:text-white transition-colors">
+      <i data-lucide="play" class="w-4 h-4"></i>
+      Quandra GPS Tracker en Google Play
+    </a>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>
