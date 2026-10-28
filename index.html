@@ -1,150 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sendevo Software</title>
 	<meta name="description" content="Sendevo Software: Servicios de desarrollo de soluciones informáticas y software.">
 	<meta name="author" content="Sendevo Software">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#0d1820">
+	<link rel="canonical" href="https://sendevosoftware.com.ar/">
 
-	<title>Sendevo</title>
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Sendevo Software">
+	<meta property="og:title" content="Sendevo Software">
+	<meta property="og:description" content="Soluciones de software end-to-end: Partimos de tu idea y te entregamos el producto terminado.">
+	<meta property="og:url" content="https://sendevosoftware.com.ar/">
+	<meta property="og:image" content="https://sendevosoftware.com.ar/images/web/og.jpg">
+	<meta property="og:locale" content="es_AR">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@sendevo_io">
 
-	<link rel="shortcut icon" type="image/icon" href="images/favicon-16x16.png" />
-	<link rel="stylesheet" href="css/style.min.css">
-	<link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/blinking-cursor.css">
+	<link rel="icon" type="image/png" href="images/favicon-16x16.png">
 
-	<!--[if IE]>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<link rel="preload" as="image" href="images/web/hero.webp">
+	<link rel="stylesheet" href="css/site.css">
+
+	<script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
+	<a class="skip-link" href="#main">Saltar al contenido</a>
 
-	<div id="preload-block">
-		<div class="square-block"></div>
-	</div>
-	
-	<header id="header">
-		<nav id="mainnav" class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">					
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-						aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Alternar navegación</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>					
-					<a class="navbar-brand" href="index.html">
-						<img class="logo-scroll" src="images/logo.png" alt="logo">
-					</a>
-				</div>
-				
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-						<li data-menuanchor="homescreen"><a href="#homescreen">Inicio</a></li>
-						<li data-menuanchor="whoweare"><a href="#whoweare">Acerca de</a></li>
-						<li data-menuanchor="whatwedo"><a href="#whatwedo">Servicios</a></li>
-						<li data-menuanchor="project"><a href="#project">Proyectos</a></li>
-						<!--
-						<li data-menuanchor="reviews"><a href="#reviews">Clientes</a></li>
-						-->
-						<li data-menuanchor="team"><a href="#team">Equipo</a></li>
-						<li data-menuanchor="contactus"><a href="#contactus">Contacto</a></li>
-					</ul>
-				</div>				
-			</div>
-		</nav>	
+	<header class="site-header" id="header">
+		<div class="container header-inner">
+			<a class="brand" href="#homescreen" aria-label="Sendevo – inicio">
+				<img src="images/logo.png" alt="Sendevo" width="2564" height="669">
+			</a>
+
+			<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="top-menu">
+				<span class="sr-only">Alternar navegación</span>
+				<span class="nav-toggle-bar"></span>
+				<span class="nav-toggle-bar"></span>
+			</button>
+
+			<nav class="main-nav" aria-label="Principal">
+				<ul id="top-menu">
+					<li><a href="#homescreen">Inicio</a></li>
+					<li><a href="#whoweare">Acerca de</a></li>
+					<li><a href="#whatwedo">Servicios</a></li>
+					<li><a href="#project">Proyectos</a></li>
+					<li><a href="#team">Equipo</a></li>
+					<li><a href="#contactus">Contacto</a></li>
+					<li class="nav-cta"><a class="btn btn-small" href="pricing/index.html">Cotizá tu proyecto</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
-	
-	<div id="page-wrapper">
-		<section id="section0" class="section homescreen" style="background: url('images/slider/background.jpg') no-repeat center top; background-size: cover;">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="section-heading">
-							<h1>Somos <span id="changing-title">Sendevo.</span><div id="cursor"></div></h1>
-                            <p>Soluciones de software end-to-end: Partimos de tu idea y te entregamos el producto terminado.</p>
-							<div class="form-group" style="margin-top: 30px;">
-								<a class="btn btn-secondary" href="pricing/index.html"><p>Cotizá tu proyecto</p></a>
-							</div>
-						</div>
-					</div>
-					<div class="arrow bounce">Desplazar <i class="fa fa-arrow-down"></i></div>
+
+	<main id="main">
+
+		<!-- Inicio -->
+		<section id="homescreen" class="hero">
+			<div class="hero-media" aria-hidden="true"></div>
+			<div class="container hero-inner">
+				<p class="eyebrow">Sendevo Software · Bahía Blanca</p>
+				<h1 class="hero-title">
+					Somos <span class="typed" id="changing-title">Sendevo.</span><span class="cursor" aria-hidden="true"></span>
+				</h1>
+				<p class="hero-lead">Soluciones de software end-to-end: Partimos de tu idea y te entregamos el producto terminado.</p>
+				<div class="hero-actions">
+					<a class="btn" href="pricing/index.html">Cotizá tu proyecto <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<a class="scroll-hint" href="#whoweare">Desplazar <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+		</section>
+
+		<!-- Acerca de -->
+		<section id="whoweare" class="section section-light">
+			<div class="container about">
+				<div class="about-text reveal">
+					<p class="section-index">01 — Acerca de</p>
+					<h2>Quiénes somos</h2>
+					<p class="lead">Nos enfocamos en pequeñas empresas con grandes ideas que necesitan tecnologías digitales para su negocio. Especialistas de larga trayectoria en implementación de sistemas innovadores y complejos harán realidad ese producto.</p>
+					<a class="btn btn-outline" href="#project">Portafolio</a>
+				</div>
+				<div class="about-mark reveal" aria-hidden="true">
+					<img src="images/web/logo-square.webp" alt="" width="640" height="674" loading="lazy">
 				</div>
 			</div>
 		</section>
 
-		<section id="section1" class="section whoweare">
+		<!-- Servicios -->
+		<section id="whatwedo" class="section section-dark">
 			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<h2>Quiénes somos</h2>
-						<p>Nos enfocamos en pequeñas empresas con grandes ideas que necesitan tecnologías digitales para su negocio. Especialistas de larga trayectoria en implementación de sistemas innovadores y complejos harán realidad ese producto.</p>
-						<div class="form-group">
-							<a class="btn btn-secondary" href="#project"><p>Portafolio</p></a>
-						</div>
-					</div>
-					<div class="col-sm-6 text-center hidden-xs" style="opacity: 0.5;">
-						<img class="img-responsive qr-code-img" src="images/logo_square.png" width="340" alt="photo">
-					</div>
+				<div class="section-head reveal">
+					<p class="section-index">02 — Servicios</p>
+					<h2>Qué hacemos</h2>
 				</div>
-			</div>
-		</section>
 
-		<section id="section2" class="section whatwedo">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 visible-xs text-center">
-						<h2>Qué hacemos</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6 col-md-6">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="box-content text-center">
-									<div class="block-icon">
-										<span class="icon-laptop fa-3x"></span>
-									</div>
-									<h3>Software</h3>
-									<p>Diseño e implementación de software móvil, de escritorio o embebido.</p>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="box-content text-center">
-									<div class="block-icon">
-										<span class="icon-bargraph fa-3x"></span>
-									</div>
-									<h3>Ciencia de datos</h3>
-									<p>Análisis y visualización de datos. Desarrollo de modelos computacionales.</p>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="box-content text-center">
-									<div class="block-icon">
-										<span class="icon-tools fa-3x"></span>
-									</div>
-									<h3>Diseño gráfico</h3>
-									<p>Diseño de logos, marcas e identidades. Diseño 3D.</p>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="box-content text-center">
-									<div class="block-icon">
-										<span class="icon-tools-2 fa-3x"></span>
-									</div>
-									<h3>Consultoría IT</h3>
-									<p>Asesoramiento en tecnologías actuales y tendencias.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-6 hidden-xs">
-						<h2>Qué hacemos</h2>
+				<div class="services">
+					<ul class="service-grid reveal">
+						<li class="service-card">
+							<i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+							<h3>Software</h3>
+							<p>Diseño e implementación de software móvil, de escritorio o embebido.</p>
+						</li>
+						<li class="service-card">
+							<i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+							<h3>Ciencia de datos</h3>
+							<p>Análisis y visualización de datos. Desarrollo de modelos computacionales.</p>
+						</li>
+						<li class="service-card">
+							<i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+							<h3>Diseño gráfico</h3>
+							<p>Diseño de logos, marcas e identidades. Diseño 3D.</p>
+						</li>
+						<li class="service-card">
+							<i class="fa-solid fa-compass-drafting" aria-hidden="true"></i>
+							<h3>Consultoría IT</h3>
+							<p>Asesoramiento en tecnologías actuales y tendencias.</p>
+						</li>
+					</ul>
+
+					<div class="service-copy reveal">
 						<p>Analizamos ideas, planteamos los requerimientos técnicos, sugerimos mejoras, estimamos plazos y cotizamos proyectos.</p>
 						<p>Nos especializamos en la implementación de algoritmos y modelos matemáticos complejos, enfocados a la innovación frugal y el desarrollo de soluciones de costo mínimo.</p>
 						<p>Trabajamos con sistemas centralizados o distribuidos, con inteligencia artificial, con sistemas embebidos, con IoT y muchas tecnologías más.</p>
@@ -154,372 +136,225 @@
 			</div>
 		</section>
 
-		<section id="section3" class="section project">
+		<!-- Proyectos -->
+		<section id="project" class="section section-light">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="section-heading text-center">
-							<h2>Nuestro portafolio</h2>
-							<p>Soluciones a medida para los requerimientos de nuestros clientes.</p>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="owl-carousel owl-theme project-slick">
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/agraria.png" alt="">
-									<div class="cover-layer">
-										<h2>Agrar.IA</h2>
-										<a class="info" target="_blank" href="https://youtu.be/CPuvyEbDz_Y">Ver</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/wodin.png" alt="">
-									<div class="cover-layer">
-										<h2>Wodin</h2>
-										<a class="info" href="#">Próximamente</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/presipedia.png" alt="">
-									<div class="cover-layer">
-										<h2>Presipedia</h2>
-										<a class="info" target="_blank" href="presipedia">Ver</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/agrario.jpg" alt="">
-									<div class="cover-layer">
-										<h2>Agrar.io</h2>
-										<a class="info" target="_blank" href="agrario">Ver</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/veradynium.png" alt="">
-									<div class="cover-layer">
-										<h2>Veradynium</h2>
-										<a class="info" href="#">Próximamente</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/apphelion.jpeg" alt="">
-									<div class="cover-layer">
-										<h2>Apphelion</h2>
-										<a class="info" target="_blank" href="apphelion">Ver</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/quandra.png" alt="">
-									<div class="cover-layer">
-										<h2>Quandra</h2>
-										<a class="info" target="_blank" href="quandra">Ver</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/inta_apps.png" alt="">
-									<div class="cover-layer">
-										<h2>Campero & Criollo</h2>
-										<a class="info" target="_blank" href="https://play.google.com/store/apps/developer?id=INTA">Ver</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 								
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/institutional_rtsg.png" alt="">
-									<div class="cover-layer">
-										<h2>Web institucional RTSG</h2>
-										<a class="info" target="_blank" href="http://www.diec.uns.edu.ar/rts/#/">Ver</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 
-							<div class="item">
-								<div class="popup-effect">
-									<img class="img-responsive img-rounded" src="images/projects/institucional_gipis.png" alt="">
-									<div class="cover-layer">
-										<h2>Web institucional GIPIS</h2>
-										<a class="info" target="_blank" href="http://www.ing.unp.edu.ar/">Ver</a>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div> 							
-						</div>
-					</div>
+				<div class="section-head reveal">
+					<p class="section-index">03 — Proyectos</p>
+					<h2>Nuestro portafolio</h2>
+					<p class="lead">Soluciones a medida para los requerimientos de nuestros clientes.</p>
 				</div>
+
+				<ul class="project-grid">
+					<li class="project-card reveal">
+						<a href="https://youtu.be/CPuvyEbDz_Y" target="_blank" rel="noopener">
+							<img src="images/web/project-agraria.webp" alt="" width="640" height="640" loading="lazy">
+							<span class="project-meta"><span class="project-name">Agrar.IA</span><span class="project-status">Ver <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></span>
+						</a>
+					</li>
+					<li class="project-card is-soon reveal">
+						<div>
+							<img src="images/web/project-wodin.webp" alt="" width="511" height="511" loading="lazy">
+							<span class="project-meta"><span class="project-name">Wodin</span><span class="project-status">Próximamente</span></span>
+						</div>
+					</li>
+					<li class="project-card reveal">
+						<a href="presipedia" target="_blank" rel="noopener">
+							<img src="images/web/project-presipedia.webp" alt="" width="608" height="608" loading="lazy">
+							<span class="project-meta"><span class="project-name">Presipedia</span><span class="project-status">Ver <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></span>
+						</a>
+					</li>
+					<li class="project-card reveal">
+						<a href="agrario" target="_blank" rel="noopener">
+							<img src="images/web/project-agrario.webp" alt="" width="640" height="640" loading="lazy">
+							<span class="project-meta"><span class="project-name">Agrar.io</span><span class="project-status">Ver <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></span>
+						</a>
+					</li>
+					<li class="project-card is-soon reveal">
+						<div>
+							<img src="images/web/project-veradynium.webp" alt="" width="294" height="294" loading="lazy">
+							<span class="project-meta"><span class="project-name">Veradynium</span><span class="project-status">Próximamente</span></span>
+						</div>
+					</li>
+					<li class="project-card reveal">
+						<a href="apphelion" target="_blank" rel="noopener">
+							<img src="images/web/project-apphelion.webp" alt="" width="640" height="640" loading="lazy">
+							<span class="project-meta"><span class="project-name">Apphelion</span><span class="project-status">Ver <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></span>
+						</a>
+					</li>
+					<li class="project-card reveal">
+						<a href="quandra" target="_blank" rel="noopener">
+							<img src="images/web/project-quandra.webp" alt="" width="640" height="639" loading="lazy">
+							<span class="project-meta"><span class="project-name">Quandra</span><span class="project-status">Ver <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></span>
+						</a>
+					</li>
+					<li class="project-card reveal">
+						<a href="https://play.google.com/store/apps/developer?id=INTA" target="_blank" rel="noopener">
+							<img src="images/web/project-inta_apps.webp" alt="" width="640" height="639" loading="lazy">
+							<span class="project-meta"><span class="project-name">Campero &amp; Criollo</span><span class="project-status">Ver <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></span>
+						</a>
+					</li>
+					<li class="project-card reveal">
+						<a href="http://www.diec.uns.edu.ar/rts/#/" target="_blank" rel="noopener">
+							<img src="images/web/project-institutional_rtsg.webp" alt="" width="604" height="604" loading="lazy">
+							<span class="project-meta"><span class="project-name">Web institucional RTSG</span><span class="project-status">Ver <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></span>
+						</a>
+					</li>
+					<li class="project-card reveal">
+						<a href="http://www.ing.unp.edu.ar/" target="_blank" rel="noopener">
+							<img src="images/web/project-institucional_gipis.webp" alt="" width="640" height="640" loading="lazy">
+							<span class="project-meta"><span class="project-name">Web institucional GIPIS</span><span class="project-status">Ver <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></span>
+						</a>
+					</li>
+				</ul>
 			</div>
 		</section>
 
-		<!--
-		<section id="section4" class="section reviews">
+		<!-- Equipo -->
+		<section id="team" class="section section-dark">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="section-heading text-center">
-							<h2>Nuestros clientes</h2>
-						</div>
-					</div>
-					<div class="col-md-offset-1 col-md-10">
-						<div class="owl-carousel owl-theme feedbackslider">
-							<div class="feedback-item">
-								<span class="top-icon icon-quote fa-4x"></span>
-								<p>Un emprendimiento consciente de la realidad y con la capacidad de aprovechar al máximo los recursos humanos que abundan en nuestra sociedad.</p>
-								<span class="client-name">N. N. - Appaxle Inc.</span>
-							</div> 
-							<div class="feedback-item">
-								<span class="top-icon icon-quote fa-4x"></span>
-								<p>Con una visión simplista, Sendevo logra entregar soluciones pragmáticas para negocios competitivos.</p>
-								<span class="client-name">R. E. - Digital Bucket Co.</span>
-							</div>
-                            <div class="feedback-item">
-								<span class="top-icon icon-quote fa-4x"></span>
-								<p>Rápido, eficiente y confiable. Sendevo reúne todas las características que uno espera por parte de quien desarrolla tu producto.</p>
-								<span class="client-name">E. D. - Pearson & Dereck.</span>
-							</div>
-						</div>
-					</div>
+				<div class="section-head reveal">
+					<p class="section-index">04 — Equipo</p>
+					<h2>Nuestro equipo</h2>
+					<p class="lead">Contamos con un especialista para cada área de nuestros proyectos. Si te interesa trabajar con nosotros, no dudes en <a href="#contactus">contactarnos</a>.</p>
 				</div>
-			</div>
-		</section>
-		-->
 
-		<section id="section4" class="section team">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="section-heading text-center">
-							<h2>Nuestro equipo</h2>
-							<p>Contamos con un especialista para cada área de nuestros proyectos. Si te interesa trabajar con nosotros, no dudes en <a href="#contactus" style="color:lightgray">contactarnos</a>.</p>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="owl-carousel owl-theme team-slick">
-							<div class="member-item text-center">
-								<img class="img-responsive img-circle" src="images/team/foto10.jpg" alt="">
-								<div class="team-detail">
-									<h3 class="member-name">Matías Micheletto</h3>
-									<p>Dirección general</p>
-									<ul class="social-links">
-										<li><a class="fa fa-linkedin" target="_blank" href="https://www.linkedin.com/in/matiasmicheletto"></a></li>
-										<li><a class="fa fa-twitter" target="_blank" href="https://www.twitter.com/yomatiasmiche"></a></li>
-										<li><a class="fa fa-github" target="_blank" href="https://www.github.com/matiasmicheletto"></a></li>
-										<li><a class="fa fa-instagram" target="_blank" href="https://www.instagram.com/matias.miche"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="member-item text-center">
-								<img class="img-responsive img-circle" src="images/team/foto2.jpg" alt="">
-								<div class="team-detail">
-									<h3 class="member-name">Matías Micheletto</h3>
-									<p>Análisis funcional</p>
-									<ul class="social-links">
-										<li><a class="fa fa-linkedin" target="_blank" href="https://www.linkedin.com/in/matiasmicheletto"></a></li>
-										<li><a class="fa fa-twitter" target="_blank" href="https://www.twitter.com/yomatiasmiche"></a></li>
-										<li><a class="fa fa-github" target="_blank" href="https://www.github.com/matiasmicheletto"></a></li>
-										<li><a class="fa fa-instagram" target="_blank" href="https://www.instagram.com/matias.miche"></a></li>
-									</ul>
-								</div>
-							</div>
-                            <div class="member-item text-center">
-								<img class="img-responsive img-circle" src="images/team/foto11.jpg" alt="">
-								<div class="team-detail">
-									<h3 class="member-name">Matías Micheletto</h3>
-									<p>Desarrollo</p>
-									<ul class="social-links">
-										<li><a class="fa fa-facebook" target="_blank" href="https://www.facebook.com/miche1989/"></a></li>
-										<li><a class="fa fa-twitter" target="_blank" href="https://www.twitter.com/yomatiasmiche"></a></li>
-										<li><a class="fa fa-instagram" target="_blank" href="https://www.instagram.com/matias.miche"></a></li>
-										<li><a class="fa fa-linkedin" target="_blank" href="https://www.linkedin.com/in/matiasmicheletto"></a></li>
-									</ul>
-								</div>
-							</div>							
-							<div class="member-item text-center">
-								<img class="img-responsive img-circle" src="images/team/foto1.jpg" alt="">
-								<div class="team-detail">
-									<h3 class="member-name">Matías Micheletto</h3>
-									<p>Diseño gráfico</p>
-									<ul class="social-links">
-										<li><a class="fa fa-facebook" target="_blank" href="https://www.facebook.com/miche1989/"></a></li>
-										<li><a class="fa fa-twitter" target="_blank" href="https://www.twitter.com/yomatiasmiche"></a></li>
-										<li><a class="fa fa-instagram" target="_blank" href="https://www.instagram.com/matias.miche"></a></li>
-										<li><a class="fa fa-linkedin" target="_blank" href="https://www.linkedin.com/in/matiasmicheletto"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="member-item text-center">
-								<img class="img-responsive img-circle" src="images/team/foto9.jpg" alt="">
-								<div class="team-detail">
-									<h3 class="member-name">Matías Micheletto</h3>
-									<p>Ingeniería I+D+i</p>
-									<ul class="social-links">
-										<li><a class="fa fa-facebook" target="_blank" href="https://www.facebook.com/miche1989/"></a></li>
-										<li><a class="fa fa-twitter" target="_blank" href="https://www.twitter.com/yomatiasmiche"></a></li>
-										<li><a class="fa fa-instagram" target="_blank" href="https://www.instagram.com/matias.miche"></a></li>
-										<li><a class="fa fa-linkedin" target="_blank" href="https://www.linkedin.com/in/matiasmicheletto"></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="member-item text-center">
-								<img class="img-responsive img-circle" src="images/team/foto7.jpg" alt="">
-								<div class="team-detail">
-									<h3 class="member-name">Matías Micheletto</h3>
-									<p>Ciencia de datos</p>
-									<ul class="social-links">
-										<li><a class="fa fa-facebook" target="_blank" href="https://www.facebook.com/miche1989/"></a></li>
-										<li><a class="fa fa-twitter" target="_blank" href="https://www.twitter.com/yomatiasmiche"></a></li>
-										<li><a class="fa fa-instagram" target="_blank" href="https://www.instagram.com/matias.miche"></a></li>
-										<li><a class="fa fa-linkedin" target="_blank" href="https://www.linkedin.com/in/matiasmicheletto"></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<ul class="team-grid">
+					<li class="member reveal">
+						<img src="images/web/team-foto10.webp" alt="Matías Micheletto" width="600" height="600" loading="lazy">
+						<h3>Matías Micheletto</h3>
+						<p class="member-role">Dirección general</p>
+						<ul class="social-links">
+							<li><a href="https://www.linkedin.com/in/matiasmicheletto" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+							<li><a href="https://www.twitter.com/yomatiasmiche" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+							<li><a href="https://www.github.com/matiasmicheletto" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+							<li><a href="https://www.instagram.com/matias.miche" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+						</ul>
+					</li>
+					<li class="member reveal">
+						<img src="images/web/team-foto2.webp" alt="Matías Micheletto" width="600" height="600" loading="lazy">
+						<h3>Matías Micheletto</h3>
+						<p class="member-role">Análisis funcional</p>
+						<ul class="social-links">
+							<li><a href="https://www.linkedin.com/in/matiasmicheletto" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+							<li><a href="https://www.twitter.com/yomatiasmiche" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+							<li><a href="https://www.github.com/matiasmicheletto" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+							<li><a href="https://www.instagram.com/matias.miche" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+						</ul>
+					</li>
+					<li class="member reveal">
+						<img src="images/web/team-foto11.webp" alt="Matías Micheletto" width="600" height="600" loading="lazy">
+						<h3>Matías Micheletto</h3>
+						<p class="member-role">Desarrollo</p>
+						<ul class="social-links">
+							<li><a href="https://www.facebook.com/miche1989/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+							<li><a href="https://www.twitter.com/yomatiasmiche" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/matias.miche" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+							<li><a href="https://www.linkedin.com/in/matiasmicheletto" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+						</ul>
+					</li>
+					<li class="member reveal">
+						<img src="images/web/team-foto1.webp" alt="Matías Micheletto" width="600" height="600" loading="lazy">
+						<h3>Matías Micheletto</h3>
+						<p class="member-role">Diseño gráfico</p>
+						<ul class="social-links">
+							<li><a href="https://www.facebook.com/miche1989/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+							<li><a href="https://www.twitter.com/yomatiasmiche" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/matias.miche" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+							<li><a href="https://www.linkedin.com/in/matiasmicheletto" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+						</ul>
+					</li>
+					<li class="member reveal">
+						<img src="images/web/team-foto9.webp" alt="Matías Micheletto" width="600" height="600" loading="lazy">
+						<h3>Matías Micheletto</h3>
+						<p class="member-role">Ingeniería I+D+i</p>
+						<ul class="social-links">
+							<li><a href="https://www.facebook.com/miche1989/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+							<li><a href="https://www.twitter.com/yomatiasmiche" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/matias.miche" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+							<li><a href="https://www.linkedin.com/in/matiasmicheletto" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+						</ul>
+					</li>
+					<li class="member reveal">
+						<img src="images/web/team-foto7.webp" alt="Matías Micheletto" width="600" height="600" loading="lazy">
+						<h3>Matías Micheletto</h3>
+						<p class="member-role">Ciencia de datos</p>
+						<ul class="social-links">
+							<li><a href="https://www.facebook.com/miche1989/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+							<li><a href="https://www.twitter.com/yomatiasmiche" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/matias.miche" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+							<li><a href="https://www.linkedin.com/in/matiasmicheletto" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</section>
 
-		<!--<section id="section6" class="section contactus">-->
-		<section id="section5" class="section contactus">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-md-6 hidden-xs">
-						<h2>¿Tenés una idea en mente? Conversemos.</h2>
-						<div class="contact-details">
-							<div class="vcard">
-								<dl>
-									<dt>Email</dt>
-									<!--<dd><a class="email"
-											href="/cdn-cgi/l/email-protection#KEYKEYKEY">
-											<span class="__cf_email__" data-cfemail="DATADATADATA">[email&#160;protected]</span></a>
-									</dd>-->
-									<dd><a class="email"
-										href="mailto:holasendevo@gmail.com">
-										<span>holasendevo@gmail.com</span></a>
-									</dd>
-									<!--
-									<dt>Teléfono</dt>
-									<dd>
-										<div class="phone">
-											<a href="tel:+5492910000000">+54 9 (291) 000-0000</a>
-										</div>
-										<div class="phone">
-											<a href="tel:000000">0(000)000-000<span class="phone-help"></span></a>
-										</div>
-										
-									</dd>
-									-->
-									<dt>Ubicación</dt>
-									<dd>
-										<div class="org">Sendevo Software</div>
-										<div class="adr">
-											<!--<div class="street-address">Zelarrayan 646</div>-->
-											<span class="locality">Bahía Blanca</span>,
-											<abbr class="region" title="Buenos Aires"></abbr>
-											<span class="postal-code">8000</span>
-										</div>
-									</dd>
-								</dl>
-							</div><!-- .vcard -->
+		<!-- Contacto -->
+		<section id="contactus" class="section section-light">
+			<div class="container contact">
+				<div class="contact-info reveal">
+					<p class="section-index">05 — Contacto</p>
+					<h2>¿Tenés una idea en mente? Conversemos.</h2>
+					<dl class="contact-details">
+						<div>
+							<dt>Email</dt>
+							<dd><a href="mailto:holasendevo@gmail.com">holasendevo@gmail.com</a></dd>
 						</div>
-					</div>
-					<div class="col-sm-6 col-md-6">
-						<div class="enquiry-box">
-							<form id="contact-form" action="">								
-								<div class="controls">
-									<div class="form-group">
-										<label for="form_name">Nombre</label>
-										<input id="form_name" name="name" class="form-control"
-											placeholder="Indique su nombre *" required="required"
-											data-error="Se requiere nombre." type="text">
-										<div class="help-block with-errors"></div>
-									</div>
-									<div class="form-group">
-										<label for="form_email">Correo electrónico</label>
-										<input id="form_email" name="email" class="form-control"
-											placeholder="Indique su email *" required="required"
-											data-error="Se requiere un email válido." type="email">
-										<div class="help-block with-errors"></div>
-									</div>
-									<div class="form-group">
-										<label for="form_phone">Número de teléfono</label>
-										<input id="form_phone" name="phone" class="form-control"
-											placeholder="Indique su teléfono" type="tel">
-										<div class="help-block with-errors"></div>
-									</div>
-									<div class="form-group">
-										<label for="form_message">¿Cómo podemos ayudarte?</label>
-										<textarea id="form_message" name="message" class="form-control"
-											placeholder="Su mensaje *" rows="4" required="required"
-											data-error="Deje un mensaje."></textarea>
-										<div class="help-block with-errors"></div>
-									</div>
-									<div class="form-group">
-										<input class="btn btn-secondary btn-send disabled" value="Enviar" type="submit">
-									</div>
-								</div>
-								<div class="messages"></div>
-							</form>
+						<div>
+							<dt>Ubicación</dt>
+							<dd>
+								Sendevo Software<br>
+								Bahía Blanca, 8000
+							</dd>
 						</div>
-					</div>
+					</dl>
 				</div>
+
+				<form id="contact-form" class="contact-form reveal" novalidate>
+					<div class="field">
+						<label for="form_name">Nombre</label>
+						<input id="form_name" name="name" type="text" placeholder="Indique su nombre *" required autocomplete="name" data-error="Se requiere nombre.">
+						<p class="field-error" aria-live="polite"></p>
+					</div>
+					<div class="field">
+						<label for="form_email">Correo electrónico</label>
+						<input id="form_email" name="email" type="email" placeholder="Indique su email *" required autocomplete="email" data-error="Se requiere un email válido.">
+						<p class="field-error" aria-live="polite"></p>
+					</div>
+					<div class="field">
+						<label for="form_phone">Número de teléfono</label>
+						<input id="form_phone" name="phone" type="tel" placeholder="Indique su teléfono" autocomplete="tel">
+						<p class="field-error" aria-live="polite"></p>
+					</div>
+					<div class="field">
+						<label for="form_message">¿Cómo podemos ayudarte?</label>
+						<textarea id="form_message" name="message" rows="4" placeholder="Su mensaje *" required data-error="Deje un mensaje."></textarea>
+						<p class="field-error" aria-live="polite"></p>
+					</div>
+					<button class="btn btn-block" type="submit">Enviar</button>
+					<div class="form-message" role="status" aria-live="polite"></div>
+				</form>
 			</div>
 		</section>
 
-	</div><!-- Page Wrapper -->
+	</main>
 
-
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-md-6 hidden-xs">
-					<p class="text-left copyright">&copy;2024 - Sendevo Software</p>
-				</div>
-				<div class="col-sm-6 col-md-6 text-right">
-					<ul class="social-links">						
-						<li><a class="fa fa-facebook" target="_blank" href="https://www.facebook.com/sendevo.io"></a></li>
-						<li><a class="fa fa-twitter" target="_blank" href="https://www.twitter.com/sendevo_io"></a></li>
-						<li><a class="fa fa-instagram" target="_blank" href="https://www.instagram.com/sendevo.io"></a></li>
-						<li><a class="fa fa-linkedin" target="_blank" href="https://www.linkedin.com/company/sendevo"></a></li>
-					</ul>
-				</div>
-			</div>
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<p class="copyright">&copy;<span id="year">2024</span> - Sendevo Software</p>
+			<ul class="social-links">
+				<li><a href="https://www.facebook.com/sendevo.io" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+				<li><a href="https://www.twitter.com/sendevo_io" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+				<li><a href="https://www.instagram.com/sendevo.io" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+				<li><a href="https://www.linkedin.com/company/sendevo" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+			</ul>
 		</div>
 	</footer>
 
-	<!--<script data-cfasync="false" src="js/email-decode.min.js"></script>-->
-	<script src="js/firebase-app.js"></script>
-	<script src="js/firebase-database.js"></script>
-	<script src="js/jquery-2.2.4.min.js"></script>
-	<script src="js/jquery.easing.min.js"></script>
-	<script src="js/jquery.fullPage.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/validator.js"></script>
-	<script src="js/ajax-contact.js"></script>
-	<script src="js/custom.min.js"></script>
-    <script src="js/changing-text.js"></script>    
-
+	<script src="js/firebase-app.js" defer></script>
+	<script src="js/firebase-database.js" defer></script>
+	<script src="js/site.js" defer></script>
 </body>
 
 </html>
